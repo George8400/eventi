@@ -1,0 +1,314 @@
+:root{
+    --color-text: #555;
+    --color-second: cornflowerblue;/* cornflowerblue; */
+    --color-bg: #e0e0e0;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+html, body{
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(to right, rgb(122, 206, 0) , rgb(0, 155, 255)); */
+    background: var(--color-bg);
+}
+
+/*-----------
+Header
+-------------*/
+.hdr {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 10vh;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    padding: 0 5%;
+    transition: 0.5s;
+}
+
+ .hdr-invisible {   
+    transform: translateY(-100%);
+} 
+
+.hdr__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hdr__logo a {
+    display: contents;
+    text-decoration: none;
+    font-size: x-large;
+    color: var(--color-text);
+}
+
+.hdr__logo a img {
+    display: inline-block;
+    max-height: 44px;
+    max-width: 100%;
+}
+
+.hdr__nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.hdr__nav__menu__item {
+    display: inline-block;
+    list-style: none;
+    padding: 0 10px;
+    letter-spacing: 1px;
+}
+
+.hdr__nav__menu__item a {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    
+
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.hdr__nav__menu__item a .fas{
+    font-size: 15px;
+    color: rgb(114, 218, 250);
+}
+.hdr__nav__menu__item a:active{
+    transform: scale(0.98);
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+
+
+/*---------------------------
+Presentation banner msg
+---------------------------*/
+.banner__msg{
+    display: flex;
+    height: 30vh;
+    min-height: 300px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.banner__msg h2, h3{
+    color: var(--color-text);
+    letter-spacing: 1px;
+    margin: 0 25px;
+    text-align: center;
+}
+
+/*-----------
+Search Box
+-------------*/
+.search-box {  
+    display: flex;
+    max-width: 600px;
+    max-height: 40px;
+    margin-top: 3vh;
+    margin: 8vh auto 0 ;
+    
+}
+.search-box input{
+    /* border: 1px solid #333; */
+    border-radius: 50px;
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+                 -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.search-box input:focus{
+    /* border: 2px solid cornflowerblue; */
+    /* background: var(--color-second); */
+    border-radius: 50px;
+    box-shadow:  inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.search-txt {
+    position: relative;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 1vh 1vw 1vh 1vw;
+    max-width: 100%;
+}
+input[type=text]{
+    color: var(--color-text);
+    width: 80vw;
+}
+
+
+/*-----------
+Categories
+-------------*/
+.container{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 3vh 3vw;
+    margin: auto;
+    min-height: 55vh;
+}
+
+.container label{
+    position: relative;
+    cursor: pointer;
+    margin: 1.5vw;
+}
+
+.container label input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+}
+
+.container label .card{
+    padding: 25px 20px 20px 20px;
+    width: 10vw;
+    height: 12vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 35px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
+    user-select: none;
+}
+/* .container label .card h2{
+    color: var(--color-text);
+    font-size: 19px;
+    text-align: center;
+    transition: 0.2s;
+} */
+.container label .card p{
+    color: var(--color-text);
+    font-size: 13px;
+    text-align: center;
+    transition: 0.2s;
+}
+/* .container label:hover h2{
+    color: var(--color-second);
+} */
+ .container label:hover i{
+    color: var(--color-second);
+} 
+.container label:hover p{
+    color: var(--color-second);
+}
+.container label input[type="checkbox"]:checked ~ .card{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+     /* text-shadow: 0 0 1px #fd8700, 0 0 5px #fd8700;  */
+}
+/* .container label input[type="checkbox"]:checked ~ .card h2{
+    transform: scale(0.97);
+    color: var(--color-second);
+} */
+.container label input[type="checkbox"]:checked ~ .card i{
+    transform: scale(0.97);
+    color: var(--color-second);
+}
+.container label input[type="checkbox"]:checked ~ .card p{
+    transform: scale(0.97);
+    color: var(--color-second);
+}
+
+
+/*------------
+Send Button
+-------------*/
+.cnt__btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 100px;
+}
+.cnt__btn button{
+    position: relative;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    
+
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+
+                 
+}
+
+.cnt__btn button:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn button:active .fas{
+    transform: scale(0.94);
+    color: var(--color-second);
+    transition: 0s;
+}
+.cnt__btn button:hover .fas{
+    color: var(--color-second);
+    text-shadow: 1px 1px 4px #fff;
+}
+.fas{ /* classe dell'icona */
+    font-size: 30px;
+    color: var(--color-text);
+    transition: 0.3s;
+}
+.fab{ /* classe dell'icona */
+    font-size: 30px;
+    color: var(--color-text);
+    transition: 0.3s;
+}
+
+
+
+/*------------
+Footer
+-------------*/
+.footer{
+    background: transparent;
+    position: relative;
+    height: 70px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+	padding:10px;
+	color:var(--color-text);
+	text-align: center;
+}
+
+.footer p{
+/* 	margin-bottom: 20px; */
+	color:var(--color-text);
+}
