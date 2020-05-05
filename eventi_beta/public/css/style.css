@@ -93,7 +93,7 @@ Header
 }
 .hdr__nav__menu__item a .fas{
     font-size: 15px;
-    color: rgb(114, 218, 250);
+    color: rgb(10, 181, 17);
 }
 .hdr__nav__menu__item a:active{
     transform: scale(0.98);
@@ -155,7 +155,8 @@ Search Box
 }
 input[type=text]{
     color: var(--color-text);
-    width: 80vw;
+    width: 100vw;
+    margin: 0px 25px 0px;
 }
 
 

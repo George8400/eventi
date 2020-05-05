@@ -1,0 +1,129 @@
+<form action="/" method="post" {{!-- enctype="multipart/form-data" --}}>
+
+    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Crea evento</h2>
+
+    <section class="form-create">
+        <div class="create-box">
+            
+            <input type="text" name="title" class="create-txt" placeholder="Title event..">
+        </div>
+
+        
+
+
+        <div class="container__image">
+            
+            <div class="custom-file-container" data-upload-id="myupload">
+                <label><a href="javascript:void(0)" class="custom-file-container__image-clear" style="display: none;">&times;</a></label>
+
+                <div class="create-box">
+            
+                    <input type="file" id="file" name="image" accept="*" multiple aria-label="Multiple Select Files" class="create-txt input-file">
+                    <label for="file" class="create-txt"><i class="fas fa-upload"></i><h6>Upload Image</h6></label>
+                </div>
+
+                <label class="">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760545613">
+                    <span class="custom-file-container__custom-file__custom-file-control "></span>
+                </label>
+
+                <div class="custom-file-container__image-preview" style="overflow: hidden;"></div>
+                <p style="font-size: 12px; margin: 6px 0px 0px 12px; color: var(--color-text); font-weight: 600;">La prima foto caricata sarà la copertina della scheda evento.</p>
+            </div>
+        </div>
+
+<!-- JS file-upload-with-preview -->
+<script src="js\file-upload-with-preview.min.js"></script>
+        <script>
+            var upload = new FileUploadWithPreview('myupload');
+        </script>
+
+
+        <div class="create-box__description">
+            
+            <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description.."></textarea>
+        </div>
+    </section>
+
+
+
+    <h3 style="text-align: center; color: var(--color-text);">Aggiungi i servizi che il tuo evento garantisce</h3>
+
+
+    <!-- CATEGORIES -->
+    <div class="container">
+
+        <label>
+            <input type="checkbox" name="categories" value="beer">
+            <div class="card">
+                <i class="fas fa-beer"></i>
+                <p>Beer</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="music">
+            <div class="card">
+                <i class="fas fa-music"></i>
+                <p>Music</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="wifi">
+            <div class="card">
+                <i class="fas fa-wifi"></i>
+                <p>Con wi-fi</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="dog">
+            <div class="card">
+                <i class="fas fa-dog"></i>
+                <p>Dog friendly</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="cocktail">
+            <div class="card">
+                <i class="fas fa-cocktail"></i>
+                <p>Cocktail</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="creditcard">
+            <div class="card">
+                <i class="fas fa-money-check"></i>
+                <p>Credit card</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="accessible">
+            <div class="card">
+                <i class="fab fa-accessible-icon"></i>
+                <p>Accessible</p></span>
+            </div>
+        </label>
+
+        <label>
+            <input type="checkbox" name="categories" value="children">
+            <div class="card">
+                <i class="fas fa-child"></i>
+                <p>For children</p></span>
+            </div>
+        </label>
+
+    </div>
+
+
+    <!-- SEND BUTTON -->
+    <div class="cnt__btn">
+        <button type="submit">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+</form>

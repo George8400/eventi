@@ -6,9 +6,12 @@ module.exports = {
 
     submitCategories: (req, res) => {
 
-        const lista = req.body.categories;
-        
-            console.log(req.body.test);
+        let categories = req.body.categories;
+
+    },
+
+    createEvent: (req, res) => {
+        res.render('index/createEvent');
     }
 
 

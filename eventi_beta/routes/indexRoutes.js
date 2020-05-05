@@ -14,5 +14,7 @@ router.route('/')
 	.get(indexController.index)
 	.post(indexController.submitCategories);
 
+router.route('/createEvent')
+	.get(indexController.createEvent);
 
 module.exports = router;

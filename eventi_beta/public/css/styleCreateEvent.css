@@ -1,0 +1,100 @@
+/* /*-----------
+Search Box
+-------------*/
+.form-create{
+	margin: 0 auto;
+	max-height: 600px;
+    min-width: 40%;
+    margin-bottom: 110px;
+}
+.container__image{
+    max-width: 600px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+    margin: 8vh auto 0;
+}
+
+.create-box {  
+    display: flex;
+    max-width: 600px;
+    max-height: 40px;
+    margin-top: 3vh;
+    margin: 8vh auto 0 ;
+    
+}
+.create-box input, textarea{
+    /* border: 1px solid #333; */
+    border-radius: 20px;
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+                 -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box input:focus{
+    /* border: 2px solid cornflowerblue; */
+    /* background: var(--color-second); */
+    border-radius: 50px;
+    box-shadow:  inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box__description{
+    display: flex;
+    max-width: 600px;
+    max-height: 400px;
+    margin-top: 3vh;
+    margin: 8vh auto 0 ;
+    border-radius: 20px;
+}
+.create-box__description textarea:focus{
+    /* border: 2px solid cornflowerblue; */
+    /* background: var(--color-second); */
+    border-radius: 20px;
+    box-shadow:  inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-txt {
+    position: relative;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 1vh 1vw 1vh 1vw;
+    max-width: 100%;
+}
+input[type=text]{
+    color: var(--color-text);
+    width: 100vw;
+}
+textarea{
+    color: var(--color-text);
+    width: 100vw;
+    margin: 0px 25px 0px;
+    max-height: 400px;
+}
+
+.input-file{
+    display: none; 
+}
+
+h6{
+    color: var(--color-text);
+}
+
+.create-box label{
+    display: flex;
+    position: relative;
+    height: 30px;
+    justify-content: center;
+    align-content: center;
+    cursor: pointer;
+    border-radius: 50px;
+    outline: none;
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+                 -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box label:active{
+    box-shadow:  inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                 inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box label .fas{
+    font-size: 13px;
+    padding: 0px 8px 0px 5px;
+}
