@@ -1,0 +1,28 @@
+
+.container a{
+    text-decoration: none;
+}
+
+.container__card{
+    padding: 25px 20px 20px 20px;
+    width: 30vw;
+    height: 30vh;
+    line-height: 27px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
+    user-select: none;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--color-text);
+    margin: 15px 10px;
+}
+.container__card h2{
+    padding-bottom: 25px;
+}
+
+.container__card p{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    line-height: 22px;
+}

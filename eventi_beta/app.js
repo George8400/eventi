@@ -13,12 +13,6 @@ const handlebars = require('express-handlebars');
 // EXPRESS SERVER
 const app = express();
 
-// Configure express
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-app.use(express.static(path.join(__dirname, 'public')));
-
-
 // CONNECT TO THE DATABASE
 mongoose.connect(mongodbUrl, { useNewUrlParser: true, useUnifiedTopology: true})
         .then(response => {
@@ -26,6 +20,14 @@ mongoose.connect(mongodbUrl, { useNewUrlParser: true, useUnifiedTopology: true})
         }).catch(err => {
             console.log("Database connection failed.");
 });
+
+// Configure express
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
+
 
 
 // SETUP VIEW ENGINE TO USE HANDLEBARS

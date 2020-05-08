@@ -1,4 +1,4 @@
-<form action="/" method="post" {{!-- enctype="multipart/form-data" --}}>
+<form action="/createEvent" method="post" {{!-- enctype="multipart/form-data" --}}>
 
     <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Crea evento</h2>
 
@@ -23,12 +23,12 @@
                 </div>
 
                 <label class="">
-                    <input type="hidden" name="MAX_FILE_SIZE" value="10485760545613">
+                    <input type="hidden" name="MAX_FILE_SIZE" value="104857605">
                     <span class="custom-file-container__custom-file__custom-file-control "></span>
                 </label>
 
                 <div class="custom-file-container__image-preview" style="overflow: hidden;"></div>
-                <p style="font-size: 12px; margin: 6px 0px 0px 12px; color: var(--color-text); font-weight: 600;">La prima foto caricata sarà la copertina della scheda evento.</p>
+                <p style="font-size: 12px; margin: 6px 0px 0px 12px; color: var(--color-text); font-weight: 600;">La foto inserite verranno visualizzate in ordine alfabetico. La prima sarà quella di copertina.</p>
             </div>
         </div>
 

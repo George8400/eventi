@@ -67,7 +67,7 @@ textarea{
     color: var(--color-text);
     width: 100vw;
     margin: 0px 25px 0px;
-    max-height: 400px;
+    max-height: 300px;
 }
 
 .input-file{

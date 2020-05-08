@@ -12,9 +12,10 @@ router.all('/*', (req, res, next) => {
 
 router.route('/')
 	.get(indexController.index)
-	.post(indexController.submitCategories);
+	.post(indexController.searchEvent);
 
 router.route('/createEvent')
-	.get(indexController.createEvent);
+	.get(indexController.createEvent)
+	.post(indexController.submitCreateEvent);
 
 module.exports = router;
