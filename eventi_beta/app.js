@@ -6,7 +6,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const handlebars = require('express-handlebars');
-
+const fileUpload = require('express-fileupload');
 
 
 
@@ -21,19 +21,20 @@ mongoose.connect(mongodbUrl, { useNewUrlParser: true, useUnifiedTopology: true})
             console.log("Database connection failed.");
 });
 
+
 // Configure express
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-
-
-
 // SETUP VIEW ENGINE TO USE HANDLEBARS
 app.engine('handlebars', handlebars({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
 
+
+// File Upload Middleware
+app.use(fileUpload());
 
 //ROUTES
 const indexRoutes = require('./routes/indexRoutes');

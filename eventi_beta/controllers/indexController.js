@@ -1,5 +1,13 @@
+const multer = require('multer');
+const AWS = require('aws-sdk');
+const { AWS_SECRET_ACCESS, AWS_ACCESS_KEY } = require('../config/configurations');
+const uuid = require('uuid');
 const EventSchema = require('../models/EventModel');
-const CategorySchema = require('../models/CategoryModel');
+
+const s3 = new AWS.S3({
+    accessKeyId: AWS_ACCESS_KEY,
+    secretAccessKey: AWS_SECRET_ACCESS
+});
 
 module.exports = {
 
@@ -10,7 +18,6 @@ module.exports = {
     searchEvent: (req, res) => {
 
         let search_box = req.body.search_box;
-
         let categories = req.body.categories;
 
         /* EventSchema.find({title: search_box}),lean().than(event =>{
@@ -44,21 +51,45 @@ module.exports = {
     createEvent: (req, res) => {
         res.render('index/createEvent');
 
-        console.log(req.body);
     },
 
     submitCreateEvent: (req, res) => {
 
-        const newEventSchema = new EventSchema({
+        // upload image
+        let file = req.files.image; 
+        const fileData = file.data;
+        const fileName = file.name.split('.');        // divide la stinga in tante stringhe ogni volta che incontra un "."
+        const fileType = fileName[fileName.length - 1];     // assegna a fileType l'ultima stringa dell'array (in questo caso il tipo dell'oggetto)
+        const newFileName = uuid.v4();
+
+        const fileKey = `${newFileName}.${fileType}`;
+
+        const params = {
+            Bucket: 'eventi-images',
+            Key: fileKey,
+            Body: fileData
+        }
+
+        s3.upload(params, (error, data) => {
+            if(error){
+                res.status(500).send(error);
+            }
+        });
+
+        // Save post in mongodb
+         const newEventSchema = new EventSchema({
             title: req.body.title,
             description: req.body.description,
-            categories: req.body.categories
+            categories: req.body.categories,
+            image: fileKey
         });
 
         newEventSchema.save().then(event => {
             console.log('Salvato con successo');
             res.redirect('/');
-        });
+        }); 
+
+        
     }
 
 
