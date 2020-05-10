@@ -17,15 +17,28 @@ module.exports = {
 
     searchEvent: (req, res) => {
 
-        let search_box = req.body.search_box;
+        let search_box = req.body.search_box.toUpperCase();
         let category = req.body.categories;
 
-        /* EventSchema.find({title: search_box}),lean().than(event =>{
+        /*  EventSchema.find({title: search_box}).lean().than(event =>{
             res.render('index/showEvent', {event: event});
-        })
-        */
+        }); */
+        
 
-        EventSchema.find({categories: { $all: category}}, null ,{sort: {date: -1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+        if(!category.length){
+            EventSchema.find({cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                console.log(event);
+                res.render('index/showEvent', {event: event});
+           }); 
+        }
+        else if(!search_box.length){
+            EventSchema.find({categories: { $all: category}}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                console.log(event);
+                res.render('index/showEvent', {event: event});
+           }); 
+        }
+        else{
+         EventSchema.find({categories: { $all: category}, cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
 
              /* if(!event.length){
                 console.log('la ricerca non ha prodotto risultati, prova con meno tag');
@@ -43,14 +56,12 @@ module.exports = {
                 console.log(event);  */
                 console.log(event);
             res.render('index/showEvent', {event: event});
-        });
-        
-        
+        }); 
+    }
     },
 
     createEvent: (req, res) => {
         res.render('index/createEvent');
-
     },
 
     submitCreateEvent: (req, res) => {
@@ -78,24 +89,36 @@ module.exports = {
             /* res.status(200).send(data); */
         });
 
+        // create dateUtility
+        const day = req.body.giorno;
+        const month = req.body.mese;
+        const year = req.body.anno;
+
+        const data = (year+month+day);
+
+
         // Save post in mongodb
          const newEventSchema = new EventSchema({
             title: req.body.title,
+            titleUtility: req.body.title.toUpperCase(),
             description: req.body.description,
             categories: req.body.categories,
             image: fileKey,
             citta: req.body.citta,
+            cittaUtility: req.body.citta.toUpperCase(),    // attributo di utilità, memorizziamo la stringa in maiuscolo per favorire il controllo nella ricerca
             provincia: req.body.provincia,
+            provinciaUtility: req.body.provincia.toUpperCase(),
             indirizzo: req.body.indirizzo,
             giorno: req.body.giorno,
             mese: req.body.mese,
             anno: req.body.anno,
-            ora: req.body.ora
+            ora: req.body.ora,
+            dateUtility: data
         });
 
         newEventSchema.save().then(event => {
             console.log('Salvato con successo');
-            console.log(event);
+            /* console.log(event); */
             res.redirect('/');
         }); 
 

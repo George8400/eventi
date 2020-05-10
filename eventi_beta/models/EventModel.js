@@ -8,6 +8,11 @@ const EventSchema = new Schema({
         required: true
     },
 
+    titleUtility: {
+        type: String,
+        required: true
+    },
+
     image: {
         type: String,
         required: false
@@ -35,7 +40,17 @@ const EventSchema = new Schema({
         required: true
     },
 
+    cittaUtility: {
+        type: String,
+        required: true
+    },
+
     provincia: {
+        type: String,
+        required: true
+    },
+
+    provinciaUtility: {
         type: String,
         required: true
     },
@@ -58,6 +73,11 @@ const EventSchema = new Schema({
         required: true
     },
     ora: {
+        type: String,
+        required: true
+    },
+
+    dateUtility: {
         type: String,
         required: true
     }

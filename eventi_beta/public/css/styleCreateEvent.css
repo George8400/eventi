@@ -76,6 +76,7 @@ textarea{
 
 h6{
     color: var(--color-text);
+    padding-right: 4px;
 }
 
 .create-box label{
@@ -118,7 +119,6 @@ h6{
         margin-bottom: 15px;
     }
     .create-box-address input{
-        margin-top: 7px;
-        height: 31px;
+        
     }
 }
