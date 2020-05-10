@@ -17,18 +17,27 @@ module.exports = {
 
     searchEvent: (req, res) => {
 
-        let search_box = req.body.search_box.toUpperCase();
-        let category = req.body.categories;
+        const search_box = req.body.search_box.toUpperCase();
+        const category = req.body.categories;
 
         /*  EventSchema.find({title: search_box}).lean().than(event =>{
             res.render('index/showEvent', {event: event});
         }); */
         
 
-        if(!category.length){
+        if(category === undefined){
             EventSchema.find({cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
-                console.log(event);
-                res.render('index/showEvent', {event: event});
+                if(event.length){
+                    console.log(event);
+                    res.render('index/showEvent', {event: event});
+                }
+                else{
+                    EventSchema.find({titleUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                        console.log(event);
+                        res.render('index/showEvent', {event: event});
+                   }); 
+                }
+                
            }); 
         }
         else if(!search_box.length){
