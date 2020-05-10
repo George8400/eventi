@@ -10,7 +10,7 @@ const EventSchema = new Schema({
 
     image: {
         type: String,
-        required: true
+        required: false
     },
 
     description: {
@@ -29,6 +29,40 @@ const EventSchema = new Schema({
             required: true
         }
     ],
+
+    citta: {
+        type: String,
+        required: true
+    },
+
+    provincia: {
+        type: String,
+        required: true
+    },
+
+    indirizzo: {
+        type: String,
+        required: true
+    },
+
+    giorno: {
+        type: String,
+        required: true
+    },
+    mese: {
+        type: String,
+        required: true
+    },
+    anno: {
+        type: String,
+        required: true
+    },
+    ora: {
+        type: String,
+        required: true
+    }
+
+
 
 });
 

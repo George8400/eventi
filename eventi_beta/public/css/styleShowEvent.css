@@ -19,7 +19,9 @@
 .container__card h2{
     padding: 10px 0 8px 4px;
 }
-
+.container__card h5{
+    padding: 10px 0 8px 4px;
+}
 .container__card p{
     font-size: 14px;
     font-weight: 600;

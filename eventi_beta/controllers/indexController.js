@@ -83,11 +83,19 @@ module.exports = {
             title: req.body.title,
             description: req.body.description,
             categories: req.body.categories,
-            image: fileKey
+            image: fileKey,
+            citta: req.body.citta,
+            provincia: req.body.provincia,
+            indirizzo: req.body.indirizzo,
+            giorno: req.body.giorno,
+            mese: req.body.mese,
+            anno: req.body.anno,
+            ora: req.body.ora
         });
 
         newEventSchema.save().then(event => {
             console.log('Salvato con successo');
+            console.log(event);
             res.redirect('/');
         }); 
 
