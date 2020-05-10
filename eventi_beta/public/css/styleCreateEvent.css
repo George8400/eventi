@@ -5,7 +5,7 @@ Search Box
 	margin: 0 auto;
 	max-height: 600px;
     min-width: 40%;
-    margin-bottom: 110px;
+    margin-bottom: 200px;
 }
 .container__image{
     max-width: 600px;
@@ -62,6 +62,7 @@ Search Box
 input[type=text]{
     color: var(--color-text);
     width: 100vw;
+    margin: 0px 25px 0px;
 }
 textarea{
     color: var(--color-text);
@@ -97,4 +98,28 @@ h6{
 .create-box label .fas{
     font-size: 13px;
     padding: 0px 8px 0px 5px;
+}
+
+/* Location box */
+.create-box-side{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.create-box-side input{
+    position: relative;
+}
+
+@media screen and (max-width: 500px){
+    .create-box-side{
+        flex-wrap: wrap;
+    }
+    .create-box-side input{
+        margin-bottom: 15px;
+    }
+    .create-box-address input{
+        margin-top: 7px;
+        height: 31px;
+    }
 }

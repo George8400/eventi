@@ -31,5 +31,12 @@
     position: relative;
     background-size: cover;
     max-width: 100%;
+}
+
+@media screen and (max-width: 500px){
+    .container__card{
+        width: 80vw;
+    }
+
 
 }

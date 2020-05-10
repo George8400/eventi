@@ -2,21 +2,23 @@
 
     <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Crea evento</h2>
 
+
+    
     <section class="form-create">
-        <div class="create-box">
-            
+
+        {{!-- Title box --}}
+        <div class="create-box"> 
             <input type="text" name="title" class="create-txt" placeholder="Title event..">
         </div>
 
         
-
+        {{!-- Upload image --}}
         <div class="container__image">
             
             <div class="custom-file-container" data-upload-id="myupload">
                 <label><a href="javascript:void(0)" class="custom-file-container__image-clear" style="display: none;">&times;</a></label>
 
                 <div class="create-box">
-            
                     <input type="file" id="file" name="image" accept="*" aria-label="Multiple Select Files" class="create-txt input-file">
                     <label for="file" class="create-txt"><i class="fas fa-upload"></i><h6>Upload Image</h6></label>
                 </div>
@@ -30,17 +32,133 @@
             </div>
         </div>
 
-<!-- JS file-upload-with-preview -->
-<script src="js\file-upload-with-preview.min.js"></script>
+        <!-- JS file-upload-with-preview -->
+        <script src="js\file-upload-with-preview.min.js"></script>
         <script>
             var upload = new FileUploadWithPreview('myupload');
         </script>
 
 
+        {{!-- Description box --}}
         <div class="create-box__description">
-            
             <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description.."></textarea>
         </div>
+
+         {{!-- Location box --}}
+        <div class="create-box create-box-side"> 
+            <input type="text" name="citta" class="create-txt" placeholder="Città">
+            <input type="text" name="provincia" class="create-txt" placeholder="Provincia">
+        </div>
+         <div class="create-box create-box-address"> 
+            <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo">
+        </div>
+         <div class="create-box create-box-side"> 
+            <select type="text" name="giorno" class="create-txt" placeholder="giorno">
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select type="text" name="mese" class="create-txt" placeholder="mese">
+                <option value="gennaio">Gennaio</option>
+                <option value="febbraio">Febbraio</option>
+                <option value="marzo">Marzo</option>
+                <option value="aprile">Aprile</option>
+                <option value="maggio">Maggio</option>
+                <option value="giugno">Giugno</option>
+                <option value="luglio">Luglio</option>
+                <option value="agosto">Agosto</option>
+                <option value="settembre">Settembre</option>
+                <option value="ottobre">Ottobre</option>
+                <option value="novembre">Novembre</option>
+                <option value="dicembre">Dicembre</option>
+            </select>
+            <select type="text" name="anno" class="create-txt" placeholder="anno">
+                <option value="2020">2020</option>
+                <option value="2021">2021</option> 
+                <option value="2022">2022</option>     
+            </select>
+            <select type="text" name="ora" class="create-txt" placeholder="ora">
+                <option value="0">00:00</option>
+                <option value="30">00:30</option> 
+                <option value="100">01:00</option>
+                <option value="130">01:30</option>
+                <option value="200">02:00</option> 
+                <option value="230">02:30</option>
+                <option value="300">03:00</option>
+                <option value="330">03:30</option> 
+                <option value="400">04:00</option>
+                <option value="430">04:30</option>
+                <option value="500">05:00</option> 
+                <option value="530">05:30</option>
+                <option value="600">06:00</option> 
+                <option value="630">06:30</option> 
+                <option value="700">07:00</option> 
+                <option value="730">07:30</option> 
+                <option value="800">08:00</option> 
+                <option value="830">08:30</option> 
+                <option value="900">09:00</option> 
+                <option value="930">09:30</option>      
+                <option value="1000">10:00</option> 
+                <option value="1030">10:30</option> 
+                <option value="1100">11:00</option> 
+                <option value="1130">11:30</option>
+                <option value="1200">12:00</option> 
+                <option value="1230">12:30</option>
+                <option value="1300">13:00</option> 
+                <option value="1330">13:30</option>
+                <option value="1400">14:00</option> 
+                <option value="1430">14:30</option>
+                <option value="1500">15:00</option> 
+                <option value="1530">15:30</option>
+                <option value="1600">16:00</option> 
+                <option value="1630">16:30</option>
+                <option value="1700">17:00</option> 
+                <option value="1730">17:30</option> 
+                <option value="1800">18:00</option> 
+                <option value="1830">18:30</option>
+                <option value="1900">19:00</option> 
+                <option value="1930">19:30</option>
+                <option value="2000">20:00</option> 
+                <option value="2030">20:30</option>
+                <option value="2100">21:00</option> 
+                <option value="2130">21:30</option>
+                <option value="2200">22:00</option> 
+                <option value="2230">22:30</option>
+                <option value="2300">23:00</option> 
+                <option value="2330">23:30</option>
+
+            </select>
+        </div>
+
+
     </section>
 
 

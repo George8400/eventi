@@ -18,16 +18,16 @@ module.exports = {
     searchEvent: (req, res) => {
 
         let search_box = req.body.search_box;
-        let categories = req.body.categories;
+        let category = req.body.categories;
 
         /* EventSchema.find({title: search_box}),lean().than(event =>{
             res.render('index/showEvent', {event: event});
         })
         */
 
-        EventSchema.find({categories: categories}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+        EventSchema.find({categories: { $all: category}}, null ,{sort: {date: -1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
 
-             if(!event.length){
+             /* if(!event.length){
                 console.log('la ricerca non ha prodotto risultati, prova con meno tag');
                 if(Array.isArray(categories)){
                     EventSchema.find({categories: categories[0]}).lean().then(event2 =>{
@@ -40,8 +40,8 @@ module.exports = {
                 });
             }
             else
-                console.log(event); 
-
+                console.log(event);  */
+                console.log(event);
             res.render('index/showEvent', {event: event});
         });
         
@@ -58,7 +58,7 @@ module.exports = {
         // upload image
         let file = req.files.image; 
         const fileData = file.data;
-        const fileName = file.name.split('.');        // divide la stinga in tante stringhe ogni volta che incontra un "."
+        const fileName = file.name.split('.');        // divide la stringa in tante stringhe ogni volta che incontra un "."
         const fileType = fileName[fileName.length - 1];     // assegna a fileType l'ultima stringa dell'array (in questo caso il tipo dell'oggetto)
         const newFileName = uuid.v4();
 
@@ -67,13 +67,15 @@ module.exports = {
         const params = {
             Bucket: 'eventi-images',
             Key: fileKey,
-            Body: fileData
+            Body: fileData,
+            ACL: 'public-read'       // rende l'oggetto leggibile da esterno in automatico
         }
 
         s3.upload(params, (error, data) => {
             if(error){
-                res.status(500).send(error);
+                res.status(500).send('bucket non raggiungibile');
             }
+            /* res.status(200).send(data); */
         });
 
         // Save post in mongodb

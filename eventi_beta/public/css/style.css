@@ -153,10 +153,10 @@ Search Box
     padding: 1vh 1vw 1vh 1vw;
     max-width: 100%;
 }
-input[type=text]{
+.search-box input[type=text]{
     color: var(--color-text);
-    width: 100vw;
-    margin: 0px 25px 0px;
+    width: 85vw;
+    margin: auto;
 }
 
 
