@@ -4,12 +4,9 @@
     line-height: 75px;
 }
 .container-event .fas{
-    font-size: 13px;
+    font-size: 18px;
 }
-.container-event .far{
-    font-size: 13px;
-    color: var(--color-text);
-}
+
 
 .title-event{
     font-size: 34px;
@@ -28,16 +25,24 @@
     user-select: none;
 }
 .box-image img{
-    max-width: 600px;
+    max-width: 100%;
+    height: auto;
     background-size: cover;
     border-radius: 20px;
 }
 
 .dati-event{
-    width: 600px;
+    min-width: 100%;
+    max-width: 600px;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    line-height: 44px;
+}
+
+.dati-event .description{
+    margin-top: 30px;
 }
 #map{
     width: 500px;
