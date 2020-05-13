@@ -1,4 +1,3 @@
-const multer = require('multer');
 const AWS = require('aws-sdk');
 const { AWS_SECRET_ACCESS, AWS_ACCESS_KEY } = require('../config/configurations');
 const uuid = require('uuid');
@@ -19,10 +18,6 @@ module.exports = {
 
         const search_box = req.body.search_box.toUpperCase();
         const category = req.body.categories;
-
-        /*  EventSchema.find({title: search_box}).lean().than(event =>{
-            res.render('index/showEvent', {event: event});
-        }); */
         
 
         if(category === undefined){
@@ -47,26 +42,11 @@ module.exports = {
            }); 
         }
         else{
-         EventSchema.find({categories: { $all: category}, cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
-
-             /* if(!event.length){
-                console.log('la ricerca non ha prodotto risultati, prova con meno tag');
-                if(Array.isArray(categories)){
-                    EventSchema.find({categories: categories[0]}).lean().then(event2 =>{
-                        console.log(event2);
-                    });
-                }
-                else
-                EventSchema.find({categories: categories}).lean().then(event2 =>{
-                    console.log(event2);
-                });
-            }
-            else
-                console.log(event);  */
+            EventSchema.find({categories: { $all: category}, cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
                 console.log(event);
-            res.render('index/showEvent', {event: event});
-        }); 
-    }
+                res.render('index/showEvent', {event: event});
+            }); 
+        }
     },
 
     createEvent: (req, res) => {
@@ -132,6 +112,17 @@ module.exports = {
         }); 
 
         
+    },
+
+    getEvent: (req, res) => {
+
+        const id = req.params._id;
+    
+        EventSchema.findById(id).lean()
+            .then(event => {
+                res.render('index/schedaEvent', {event: event});
+            })
+
     }
 
 
