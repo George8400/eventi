@@ -1,8 +1,15 @@
+// file upload
 const AWS = require('aws-sdk');
 const { AWS_SECRET_ACCESS, AWS_ACCESS_KEY } = require('../config/configurations');
 const uuid = require('uuid');
+
+// event schema
 const EventSchema = require('../models/EventModel');
 
+// geocoder
+const opencage = require('opencage-api-client');
+
+// initialized S3 for file upload
 const s3 = new AWS.S3({
     accessKeyId: AWS_ACCESS_KEY,
     secretAccessKey: AWS_SECRET_ACCESS
@@ -78,38 +85,77 @@ module.exports = {
             /* res.status(200).send(data); */
         });
 
-        // create dateUtility
-        const day = req.body.giorno;
-        const month = req.body.mese;
-        const year = req.body.anno;
 
-        const data = (year+month+day);
+        // Geocoder
+        let address = `${req.body.citta}, ${req.body.indirizzo}`;
+        
+        var lat = '';
+        var lng = '';
 
+        opencage.geocode({q: address}).then(data => {
+            /* console.log(JSON.stringify(data)); */
+            if (data.status.code == 200) {
+              if (data.results.length > 0) {
+                var place = data.results[0];
+                /*console.log(place.formatted);    // stampa l'indirizzo formattato
+                console.log(place.geometry);       // stampa coordinate 
+                console.log(place.annotations.timezone.name); // stampa continente/capitale  */
+                lat = place.geometry.lat;
+                lng = place.geometry.lng;
+              }
+            } else if (data.status.code == 402) {
+              console.log('hit free-trial daily limit');
+              console.log('become a customer: https://opencagedata.com/pricing'); 
+            } else {
+              // other possible response codes:
+              // https://opencagedata.com/api#codes
+              console.log('error', data.status.message);
+            }
+          }).catch(error => {
+            console.log('error', error.message);
+          });
 
-        // Save post in mongodb
-         const newEventSchema = new EventSchema({
-            title: req.body.title,
-            titleUtility: req.body.title.toUpperCase(),
-            description: req.body.description,
-            categories: req.body.categories,
-            image: fileKey,
-            citta: req.body.citta,
-            cittaUtility: req.body.citta.toUpperCase(),    // attributo di utilità, memorizziamo la stringa in maiuscolo per favorire il controllo nella ricerca
-            provincia: req.body.provincia,
-            provinciaUtility: req.body.provincia.toUpperCase(),
-            indirizzo: req.body.indirizzo,
-            giorno: req.body.giorno,
-            mese: req.body.mese,
-            anno: req.body.anno,
-            ora: req.body.ora,
-            dateUtility: data
-        });
+          setTimeout(function(){
+            // create dateUtility
+            const day = req.body.giorno;
+            const month = req.body.mese;
+            const year = req.body.anno;
+            const data = (year+month+day);
+            
+            // Save post in mongodb
+             const newEventSchema = new EventSchema({
+                title: req.body.title,
+                titleUtility: req.body.title.toUpperCase(),
+                description: req.body.description,
+                categories: req.body.categories,
+                image: fileKey,
+                citta: req.body.citta,
+                cittaUtility: req.body.citta.toUpperCase(),    // attributo di utilità, memorizziamo la stringa in maiuscolo per favorire il controllo nella ricerca
+                provincia: req.body.provincia,
+                provinciaUtility: req.body.provincia.toUpperCase(),
+                indirizzo: req.body.indirizzo,
+                giorno: req.body.giorno,
+                mese: req.body.mese,
+                anno: req.body.anno,
+                ora: req.body.ora,
+                dateUtility: data,
+                lat: lat,
+                lng: lng
+            });
+    
+            newEventSchema.save().then(event => {
+                console.log('Salvato con successo');
+                 console.log(event); 
+                res.redirect('/');
+            });}, 1000);
 
-        newEventSchema.save().then(event => {
-            console.log('Salvato con successo');
-            /* console.log(event); */
-            res.redirect('/');
-        }); 
+          
+
+         
+
+        
+
+        
 
         
     },

@@ -8,7 +8,7 @@
     </div>
 
     <div class="dati-event">
-        <p><a href=""><i class="fas fa-map-marker-alt"></i> {{event.citta}}, {{event.indirizzo}}</a></p>
+        <p><a href="https://maps.google.com/?q={{event.lat}},{{event.lng}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{event.citta}}, {{event.indirizzo}}</a></p>
         <p><i class="fas fa-calendar-day"></i> {{event.giorno}}-{{event.mese}}-{{event.anno}}</p>
         <p><i class="fas fa-clock"></i> {{event.ora}}h</p>
     </div>

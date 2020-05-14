@@ -80,8 +80,15 @@ const EventSchema = new Schema({
     dateUtility: {
         type: String,
         required: true
-    }
+    },
 
+    lat: {
+        type: String,
+    },
+    
+    lng: {
+        type: String,
+    }
 
 
 });

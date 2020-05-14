@@ -18,8 +18,7 @@ Search Box
     display: flex;
     max-width: 600px;
     max-height: 40px;
-    margin-top: 3vh;
-    margin: 8vh auto 0 ;
+    margin: 4vh auto 0 ;
     
 }
 .create-box input, textarea{
