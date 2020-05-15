@@ -92,7 +92,7 @@ module.exports = {
 
         citta = citta.split(' ').join('+');
         indirizzo = indirizzo.split(' ').join('+');
-        var addressParser = citta + '+' + indirizzo;
+        var addressParser = citta + '%2C' + '+' + indirizzo + '%2C';
         
 
         // create dateUtility
