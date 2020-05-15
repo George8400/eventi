@@ -8,7 +8,7 @@
 
         {{!-- Title box --}}
         <div class="create-box"> 
-            <input type="text" name="title" class="create-txt" placeholder="Title event..">
+            <input type="text" name="title" class="create-txt" placeholder="Title event.." maxlength="35">
         </div>
 
         
@@ -19,7 +19,7 @@
                 <label><a href="javascript:void(0)" class="custom-file-container__image-clear" style="display: none;">&times;</a></label>
 
                 <div class="create-box">
-                    <input type="file" id="file" name="image" accept="*" aria-label="Multiple Select Files" class="create-txt input-file">
+                    <input type="file" id="file" name="image" accept="*" aria-label="Multiple Select Files" class="create-txt input-file"required>
                     <label for="file" class="create-txt"><i class="fas fa-upload"></i><h6>Upload Image</h6></label>
                 </div>
 
@@ -49,10 +49,10 @@
             <input type="text" name="citta" class="create-txt" placeholder="Città">
             <input type="text" name="provincia" class="create-txt" placeholder="Provincia">
         </div>
-         <div class="create-box create-box-address"> 
+         <div class="create-box create-box-side create-box-address"> 
             <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo">
         </div>
-         <div class="create-box create-box-side"> 
+         <div class="create-box create-box-side create-box-date"> 
             <select type="text" name="giorno" class="create-txt" placeholder="giorno">
                 <option value="01">01</option>
                 <option value="02">02</option>

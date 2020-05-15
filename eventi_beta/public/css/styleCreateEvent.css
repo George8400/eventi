@@ -54,7 +54,7 @@ Search Box
     border: none;
     background: none;
     outline: none;
-    padding: 1vh 1vw 1vh 1vw;
+    padding: 10px 10px 10px 10px;
     max-width: 100%;
 }
 input[type=text]{
@@ -76,12 +76,12 @@ textarea{
 h6{
     color: var(--color-text);
     padding-right: 4px;
+    padding-top: 1px;
 }
 
 .create-box label{
     display: flex;
     position: relative;
-    height: 30px;
     justify-content: center;
     align-content: center;
     cursor: pointer;
@@ -110,6 +110,23 @@ h6{
     position: relative;
 }
 
+/* Date box */
+.create-box-date{
+    margin-top: 60px;
+}
+.create-box-date select{
+    margin: 10px 20px;
+    border-radius: 20px;
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+    -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box-date select:focus{
+    border-radius: 20px;
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+
+
 @media screen and (max-width: 500px){
     .create-box-side{
         flex-wrap: wrap;
@@ -118,6 +135,7 @@ h6{
         margin-bottom: 15px;
     }
     .create-box-address input{
-        
+        margin-top: 36px;
+        margin-bottom: 15px;
     }
 }
