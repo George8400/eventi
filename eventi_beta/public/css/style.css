@@ -154,7 +154,7 @@ Search Box
     border: none;
     background: none;
     outline: none;
-    padding: 1vh 1vw 1vh 1vw;
+    padding: 10px;
     max-width: 100%;
 }
 .search-box input[type=text]{
