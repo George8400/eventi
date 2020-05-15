@@ -1,4 +1,4 @@
-/* /*-----------
+/*-----------
 Search Box
 -------------*/
 .form-create{
@@ -11,14 +11,14 @@ Search Box
     justify-content: center;
     align-items: center;
     margin-top: 3vh;
-    margin: 8vh auto 0;
+    margin: 6vh auto 0;
 }
 
 .create-box {  
     display: flex;
     max-width: 600px;
     max-height: 40px;
-    margin: 4vh auto 0 ;
+    margin: 34px auto 0 ;
     
 }
 .create-box input, textarea{
@@ -39,7 +39,7 @@ Search Box
     max-width: 600px;
     max-height: 400px;
     margin-top: 3vh;
-    margin: 8vh auto 0 ;
+    margin: 5vh auto 0 ;
     border-radius: 20px;
 }
 .create-box__description textarea:focus{
@@ -54,9 +54,13 @@ Search Box
     border: none;
     background: none;
     outline: none;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     max-width: 100%;
 }
+.create-txt-image{
+    padding: 5px;
+}
+
 input[type=text]{
     color: var(--color-text);
     width: 100vw;
@@ -115,7 +119,7 @@ h6{
     margin-top: 60px;
 }
 .create-box-date select{
-    margin: 10px 20px;
+    margin: 10px 4px;
     border-radius: 20px;
     box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
     -5px -5px 11px rgba(255, 255, 255, 0.75);
