@@ -59,6 +59,10 @@ const EventSchema = new Schema({
         type: String,
         required: true
     },
+    indirizzoMaps: {
+        type: String,
+        required: true
+    },
 
     giorno: {
         type: String,
