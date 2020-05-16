@@ -1,0 +1,58 @@
+<form action="/user/login" method="post" enctype="multipart/form-data">
+
+    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Login</h2>
+
+
+    
+    <section class="form-create">
+
+        {{!-- email --}}
+        <div class="create-box"> 
+            {{#if email}}
+                <input type="email" name="email" class="create-txt" placeholder="Email" maxlength="35" value="{{email}}">
+            {{else}}
+                <input type="email" name="email" class="create-txt" placeholder="Email" maxlength="35" value="">
+            {{/if}}
+        </div>
+        {{!-- password --}}
+        <div class="create-box"> 
+            {{#if password}}
+                <input type="password" name="password" class="create-txt" placeholder="Password" maxlength="35" value="{{password}}">
+            {{else}}
+                <input type="password" name="password" class="create-txt" placeholder="Password" maxlength="35" value="">
+            {{/if}}
+        </div>
+
+
+        <section class="container-login-social">
+            <ul class="hdr__nav__menu">
+                <li class="hdr__nav__menu__item logo-google">
+                    <a href="/user/login/google" onclick="activeMenu()">
+                        <i class="fab fa-google-plus-g"></i>
+                    </a>
+                </li>
+
+                <li class="hdr__nav__menu__item logo-facebook">
+                    <a href="/user/login/facebook" onclick="activeMenu()">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+
+        <div class="create-box-login">
+            <p>O <a href="/user/register"> registrati</a>.</p>
+            
+        </div>
+        
+    </section>
+
+
+    <!-- SEND BUTTON -->
+    <div class="cnt__btn">
+        <button type="submit">
+            <i class="fas fa-arrow-right"></i>
+        </button>
+    </div>
+</form>

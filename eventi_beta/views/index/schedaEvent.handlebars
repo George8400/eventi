@@ -8,7 +8,7 @@
     </div>
 
     <div class="dati-event">
-        <p><a href="https://www.google.com/maps/search/?api=1&query={{event.indirizzoMaps}}"><i class="fas fa-map-marker-alt"></i> {{event.citta}}, {{event.indirizzo}}</a></p>
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{event.indirizzoMaps}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{event.citta}}, {{event.indirizzo}}</a></p>
         <p><i class="fas fa-calendar-day"></i> {{event.giorno}}-{{event.mese}}-{{event.anno}}</p>
         <p><i class="fas fa-clock"></i> {{event.ora}}h</p>
     </div>
@@ -18,21 +18,6 @@
     </div>  
 
     
-    {{!-- <script>
-      function init() {
-        map = new OpenLayers.Map("basicMap");
-        var mapnik         = new OpenLayers.Layer.OSM();
-        var fromProjection = new OpenLayers.Projection("EPSG:4326");   // Transform from WGS 1984
-        var toProjection   = new OpenLayers.Projection("EPSG:900913"); // to Spherical Mercator Projection
-        var position       = new OpenLayers.LonLat(13.41,52.52).transform( fromProjection, toProjection);
-        var zoom           = 15; 
-
-        map.addLayer(mapnik);
-        map.setCenter(position, zoom );
-      }
-    </script>
-
-    <div id="basicMap" style="width: 500px; height: 500px;" onload="init();"></div> --}}
 
 
 </section>

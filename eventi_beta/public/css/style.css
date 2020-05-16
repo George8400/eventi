@@ -1,6 +1,6 @@
 :root{
     --color-text: #555;
-    --color-second: cornflowerblue;/* cornflowerblue; */
+    --color-second: #2196F3;/* cornflowerblue; */
     --color-bg: #e0e0e0;
 }
 
@@ -38,6 +38,7 @@ Header
     justify-content: space-between;
     z-index: 1000;
     padding: 0 5%;
+    margin-bottom: 50px;
     transition: 0.5s;
 }
 
@@ -67,13 +68,12 @@ Header
 .hdr__nav {
     display: flex;
     justify-content: space-around;
-    align-items: center;
 }
 
 .hdr__nav__menu__item {
     display: inline-block;
     list-style: none;
-    padding: 0 10px;
+    padding: 0 7px;
     letter-spacing: 1px;
 }
 
@@ -104,6 +104,37 @@ Header
     box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
                 inset -5px -5px 11px rgba(255, 255, 255, 0.75);
 }
+
+/*---------------------------
+Tooltip
+---------------------------*/
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
 
 
 /*---------------------------
@@ -212,7 +243,7 @@ Categories
     color: var(--color-text);
     font-size: 13px;
     text-align: center;
-    transition: 0.2s;
+    transition: 0.0s;
 }
 /* .container label:hover h2{
     color: var(--color-second);
@@ -287,7 +318,7 @@ Send Button
 .fas{ /* classe dell'icona */
     font-size: 30px;
     color: var(--color-text);
-    transition: 0.3s;
+    transition: 0.0s;
 }
 .fab{ /* classe dell'icona */
     font-size: 30px;

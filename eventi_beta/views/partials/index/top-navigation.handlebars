@@ -4,14 +4,26 @@
             <a href="/" alt="Logo_WebPlus">
                 <strong>Youlivent</strong>
             </a>
-        </div>
+        </div>  
         <!--Nav-bar-->
         <div class="hdr__nav">
             <!--Menu-->
             <ul class="hdr__nav__menu">
+                  <li class="hdr__nav__menu__item">
+                      <div class="tooltip">
+                          <span class="tooltiptext">Crea nuovo evento</span>     <!--tooltip da aggiustare-->
+                      </div>
+                      
+                    <a href="/user/createEvent" onclick="activeMenu()">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </li>
                 <li class="hdr__nav__menu__item">
-                    <a href="/createEvent" onclick="activeMenu()">
-                        <i class="fas fa-sign-in-alt"></i>
+                    <div class="tooltip">
+                          <span class="tooltiptext">Login</span>
+                      </div>
+                    <a href="/user/register" onclick="activeMenu()">
+                        <i class="fas fa-sign-in-alt" style="color: #2196F3"></i>
                     </a>
                 </li>
             </ul>

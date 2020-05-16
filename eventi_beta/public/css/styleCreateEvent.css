@@ -54,7 +54,7 @@ Search Box
     border: none;
     background: none;
     outline: none;
-    padding: 10px;
+    padding: 8px 15px;
     max-width: 100%;
 }
 .create-txt-image{
@@ -62,6 +62,16 @@ Search Box
 }
 
 input[type=text]{
+    color: var(--color-text);
+    width: 100vw;
+    margin: 0px 25px 0px;
+}
+input[type=email]{
+    color: var(--color-text);
+    width: 100vw;
+    margin: 0px 25px 0px;
+}
+input[type=password]{
     color: var(--color-text);
     width: 100vw;
     margin: 0px 25px 0px;

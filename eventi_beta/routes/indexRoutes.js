@@ -13,9 +13,7 @@ router.all('/*', (req, res, next) => {
 router.route('/')
 	.get(indexController.index);
 
-router.route('/createEvent')
-	.get(indexController.createEvent)
-	.post(indexController.submitCreateEvent);
+
 
 router.route('/eventi')
 	.post(indexController.searchEvent);
