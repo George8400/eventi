@@ -1,7 +1,7 @@
 <header class="hdr /*hdr-invisible*/">
         <!--Logo-->
         <div class="hdr__logo">
-            <a href="/" alt="Logo_WebPlus">
+            <a href="/user" alt="Logo_WebPlus">
                 <strong>Youlivent</strong>
             </a>
         </div>
@@ -10,8 +10,20 @@
             <!--Menu-->
             <ul class="hdr__nav__menu">
                 <li class="hdr__nav__menu__item">
-                    <a href="/createEvent" onclick="activeMenu()">
-                        <i class="fas fa-sign-in-alt"></i>
+                      <div class="tooltip">
+                          <span class="tooltiptext">Crea nuovo evento</span>     <!--tooltip da aggiustare-->
+                      </div>
+                      
+                    <a href="/user/createEvent" onclick="activeMenu()">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </li>
+                <li class="hdr__nav__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Logout</span>
+                      </div>
+                    <a href="/user/logout" onclick="activeMenu()">
+                        <i class="fas fa-sign-out-alt" style="color:#f44336"></i>
                     </a>
                 </li>
             </ul>

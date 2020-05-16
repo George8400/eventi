@@ -7,8 +7,11 @@ module.exports = {
     AWS_ACCESS_KEY: 'AKIAJK5DJHUBLYKQ3Q4A',
     globalVariables: (req, res, next) => {
         res.locals.success_msg = req.flash('success_msg');
+        res.locals.success = req.flash('success');
         res.locals.warning_msg = req.flash('warning_msg');
         res.locals.error_msg = req.flash('error_msg');
+        res.locals.error = req.flash('error');
+        
         next();
     }  
 };

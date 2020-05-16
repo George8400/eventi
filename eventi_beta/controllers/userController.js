@@ -6,11 +6,15 @@ const uuid = require('uuid');
 // bcrypt
 const bcrypt = require('bcryptjs');
 
+// passport
+const passport = require('passport');
+
 // event schema
 const EventSchema = require('../models/EventModel');
 
 // UserModel
 const UserSchema = require('../models/UserModel');
+
 
 
 
@@ -26,7 +30,7 @@ module.exports = {
 
     /* get view/user/index */
     index: (req, res) => {
-        res.render('user/index');
+        res.render('user/categories');
     },
 
     /* get view/user/createEvent */
@@ -79,6 +83,7 @@ module.exports = {
             
         // Save post in mongodb
         const newEvent = new EventSchema({
+            user: req.user._id,
             title: req.body.title,
             titleUtility: req.body.title.toUpperCase(),
             description: req.body.description,
@@ -106,79 +111,14 @@ module.exports = {
 
     },
 
-    /* Register user */
-    getRegister: (req, res) => {
-        res.render('user/register');
-    },
-    postRegister: (req, res) => {
-        const { email, password, password2 } = req.body;
-        
-        let errors = [];
+    
 
-        // Check required fields
-        if(!email || !password || !password2){
-            errors.push('Riempire tutti i campi');
-            console.log('riempire tutti i campi')
-        }
-
-        // Check passwords match
-        if(password !== password2) {
-            errors.push('Le passwords non corrispondono');
-            console.log('le password non si trovano')
-        }
-
-        // check pass length
-        if(password.length < 8) {
-            errors.push( 'La lunghezza della password deve essere maggiore o uguale a 8 caratteri' );
-        }
-
-        // render messages errors
-        if(errors.length > 0){
-            res.render('user/register', { errors: errors, email, password, password2});
-        } else {
-            // Validation passed
-            UserSchema.findOne({ email: email})
-                .then(user => {
-                    if(user) {
-                        // User exists
-                        errors.push('Email già registrata, prova ad effettuare il login');
-                        res.render('user/register', { warning: errors, email, password, password2});
-                    } else {
-                        const newUser = new UserSchema({
-                            email,
-                            password
-                        });
-
-                        // Hash Password
-                        bcrypt.genSalt(10, (err, salt) => bcrypt.hash(newUser.password, salt, (err, hash) => {
-                            if(err) throw err;
-                            // set password to hashed
-                            newUser.password = hash;
-                            // Save User in db
-                            newUser.save().then(user => {
-                                console.log('Utente salvato con successo');
-                                console.log(user); 
-                                req.flash('success_msg' , 'Registrazione effettuata con successo, ora puoi procedere con il login');
-                                res.redirect('/user/login');
-                            }).catch(err => console.log(err));
-                        }));
-
-                        
-                    }
-                });
-        } 
-
-        
-
-    },
-
-    /* Login user */
-    getLogin: (req, res) => {
-        res.render('user/login');
-    },
-    postLogin: (req, res) => {
-        res.send('user/login');
-    },
+    /* Logout user */ 
+    getLogout: (req, res) => {
+        req.logout();
+        req.flash('success_msg', 'Logout effettuato con successo');
+        res.redirect('/login');
+    }
 
 };
 

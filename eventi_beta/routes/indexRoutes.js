@@ -10,16 +10,28 @@ router.all('/*', (req, res, next) => {
 
 });
 
+/* index */
 router.route('/')
 	.get(indexController.index);
 
+/* register user */ 
+router.route('/register')
+    .get(indexController.getRegister)
+    .post(indexController.postRegister);
 
+/* login index */ 
+router.route('/login')
+    .get(indexController.getLogin)
+    .post(indexController.postLogin);
 
+/* show all events */
 router.route('/eventi')
 	.post(indexController.searchEvent);
 
-
+/* show single event */
 router.route('/eventi/:_id')
 	.get(indexController.getEvent);
+
+
 
 module.exports = router;

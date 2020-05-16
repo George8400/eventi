@@ -38,7 +38,7 @@ Header
     justify-content: space-between;
     z-index: 1000;
     padding: 0 5%;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     transition: 0.5s;
 }
 
@@ -135,6 +135,12 @@ Tooltip
     visibility: visible;
   }
 
+/*---------------------------
+form
+---------------------------*/
+form{
+    margin-top: 50px;
+}
 
 
 /*---------------------------

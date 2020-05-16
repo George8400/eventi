@@ -1,6 +1,6 @@
-<form action="/user/register" method="post" enctype="multipart/form-data">
+<form action="/login" method="post" enctype="multipart/form-data">
 
-    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Registrati</h2>
+    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Login</h2>
 
 
     
@@ -22,27 +22,18 @@
                 <input type="password" name="password" class="create-txt" placeholder="Password" maxlength="35" value="">
             {{/if}}
         </div>
-         {{!-- confirm password --}}
-        <div class="create-box"> 
-            {{#if password2}}
-            <input type="password" name="password2" class="create-txt" placeholder=" Confirm password" maxlength="35" value="{{password2}}">
-            {{else}}
-            <input type="password" name="password2" class="create-txt" placeholder=" Confirm password" maxlength="35" value="">
-            {{/if}}
-        </div>
 
 
         <section class="container-login-social">
             <ul class="hdr__nav__menu">
                 <li class="hdr__nav__menu__item logo-google">
-                    <a href="/user/login/google" onclick="activeMenu()">
-                        {{!-- <i class="fab fa-google"></i> senza la + --}}
+                    <a href="/login/google" onclick="activeMenu()">
                         <i class="fab fa-google-plus-g"></i>
                     </a>
                 </li>
 
                 <li class="hdr__nav__menu__item logo-facebook">
-                    <a href="/user/login/facebook" onclick="activeMenu()">
+                    <a href="/login/facebook" onclick="activeMenu()">
                         <i class="fab fa-facebook-f"></i>
                     </a>
                 </li>
@@ -51,7 +42,7 @@
 
 
         <div class="create-box-login">
-            <p>O effettua il <a href="/user/login">login</a>.</p> 
+            <p>O <a href="/register"> registrati</a>.</p>
             
         </div>
         

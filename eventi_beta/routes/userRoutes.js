@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/userController');
 
+// controller authentication
+const { ensureAuthenticated } = require('../config/auth');
 
 router.all('/*', (req, res, next) => {
     
@@ -16,17 +18,13 @@ router.route('/')
 
 /* create event */ 
 router.route('/createEvent')
-	.get(userController.createEvent)
+	.get(ensureAuthenticated, userController.createEvent)
     .post(userController.submitCreateEvent);
 
-/* register user */ 
-router.route('/register')
-    .get(userController.getRegister)
-    .post(userController.postRegister);
 
-/* login user */ 
-router.route('/login')
-    .get(userController.getLogin)
-    .post(userController.postLogin);
+
+/* logout user */
+router.route('/logout')
+    .get(userController.getLogout);
 
 module.exports = router;

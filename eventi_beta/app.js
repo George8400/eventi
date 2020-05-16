@@ -12,6 +12,8 @@ const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
 
+// Passport config
+require('./config/passport-setup')(passport);
 
 
 // EXPRESS SERVER
@@ -46,7 +48,7 @@ app.use(session({
 // Connect flash
 app.use(flash());
 
-// Passport initialize
+// Passport middleware initialize 
 app.use(passport.initialize());
 app.use(passport.session());
 
