@@ -118,7 +118,22 @@ module.exports = {
         req.logout();
         req.flash('success_msg', 'Logout effettuato con successo');
         res.redirect('/login');
-    }
+    },
+
+
+    /* Show user events */
+    getUserEvents: (req, res) => {
+
+        const user_id = req.user._id;
+
+        EventSchema.find({ user: user_id }).lean().then(event => {
+            
+            res.render('user/showEvent', {event: event});
+
+            console.log(event);
+        }).catch(err => console.log(err));
+
+    },
 
 };
 

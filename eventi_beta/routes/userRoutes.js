@@ -5,7 +5,7 @@ const userController = require('../controllers/userController');
 // controller authentication
 const { ensureAuthenticated } = require('../config/auth');
 
-router.all('/*', (req, res, next) => {
+router.all('/*', ensureAuthenticated, (req, res, next) => {
     
     req.app.locals.layout = 'user';
     
@@ -19,12 +19,15 @@ router.route('/')
 /* create event */ 
 router.route('/createEvent')
 	.get(ensureAuthenticated, userController.createEvent)
-    .post(userController.submitCreateEvent);
+    .post(ensureAuthenticated, userController.submitCreateEvent);
 
 
 
 /* logout user */
 router.route('/logout')
-    .get(userController.getLogout);
+    .get(ensureAuthenticated, userController.getLogout);
+
+router.route('/userEvents')
+    .get(ensureAuthenticated, userController.getUserEvents);
 
 module.exports = router;

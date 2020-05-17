@@ -1,12 +1,10 @@
-
 .container a{
     text-decoration: none;
 }
 
 .container__card{
-    width: 35vw;
     min-width: 200px;
-    height: 45vh;
+    height: 35vh;
     line-height: 27px;
     border-radius: 12px;
     box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
@@ -39,7 +37,7 @@
     font-size: 14px;
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 540px){
     .container__card{
         width: 80vw;
     }

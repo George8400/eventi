@@ -143,7 +143,7 @@ module.exports = {
     },
     postLogin: (req, res, next) => {
         passport.authenticate('local', {
-            successRedirect: '/user/createEvent',
+            successRedirect: '/user/userEvents',
             failureRedirect: '/login', 
             failureFlash: 'Username o password errata',
             successFlash: 'Login effettuato con successo'
@@ -163,7 +163,7 @@ module.exports = {
         console.log('getAuthGoogleCallback');
         passport.authenticate('google', { 
             failureRedirect: '/login',
-            successRedirect: '/user/createEvent',
+            successRedirect: '/user/userEvents',
             failureFlash: 'Qualcosa è andato storto :( ..riprova',
             successFlash: 'Login effettuato con successo'
         })(req, res, next);

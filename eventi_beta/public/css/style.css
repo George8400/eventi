@@ -367,13 +367,12 @@ Footer
 .footer{
     background: transparent;
     position: relative;
+    margin: 200px 0 100px 0;
     height: 70px;
     width: 100%;
-    bottom: 0;
-    left: 0;
-	padding:10px;
-	color:var(--color-text);
-	text-align: center;
+    padding: 10px;
+    color: var(--color-text);
+    text-align: center;
 }
 
 .footer p{
