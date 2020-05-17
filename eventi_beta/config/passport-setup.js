@@ -1,10 +1,13 @@
 const LocalStrategy = require('passport-local').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcryptjs');
 
 // Load user model
 const UserSchema = require('../models/UserModel');
 
 module.exports = function(passport) {
+
+    /* Local */
     passport.use(
         new LocalStrategy({ usernameField: 'email'}, (email, password, done) => {
             // Match user
@@ -29,6 +32,8 @@ module.exports = function(passport) {
                 }).catch(err => console.log(err));
         })
     )
+
+
 
     passport.serializeUser((user, done) => {
         done(null, user.id);

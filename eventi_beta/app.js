@@ -11,9 +11,11 @@ const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
-
+ 
 // Passport config
+require('./config/passport-google')(passport);
 require('./config/passport-setup')(passport);
+
 
 
 // EXPRESS SERVER

@@ -152,4 +152,23 @@ module.exports = {
 
 
 
+    /* login google */
+    getAuthGoogle: (req, res, next) => {
+        console.log('getAuthGoogle');
+        passport.authenticate('google', {scope: ['profile', 
+                                        'email']})(req, res, next);
+    },
+
+    getAuthGoogleCallback: (req, res, next) => {
+        console.log('getAuthGoogleCallback');
+        passport.authenticate('google', { 
+            failureRedirect: '/login',
+            successRedirect: '/user/createEvent',
+            failureFlash: 'Qualcosa è andato storto :( ..riprova',
+            successFlash: 'Login effettuato con successo'
+        })(req, res, next);
+    }
+
+
+
 };

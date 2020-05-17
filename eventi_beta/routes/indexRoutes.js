@@ -22,7 +22,13 @@ router.route('/register')
 /* login index */ 
 router.route('/login')
     .get(indexController.getLogin)
-    .post(indexController.postLogin);
+	.post(indexController.postLogin);
+	
+ /* login google */
+ router.route('/auth/google')
+	.get(indexController.getAuthGoogle);
+router.route('/auth/google/callback')
+	.get(indexController.getAuthGoogleCallback);
 
 /* show all events */
 router.route('/eventi')

@@ -65,7 +65,7 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-color: #e0e0e0;
+    background-color: #e0e0e000;
     overflow: scroll; 
     box-shadow: inset 10px 10px 22px rgba(0, 0, 0, 0.2), inset -10px -10px 22px rgba(255, 255, 255, 0.75);
   }
