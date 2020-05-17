@@ -23,12 +23,52 @@
                           <span class="tooltiptext">Logout</span>
                       </div>
                     <a href="/user/logout" onclick="activeMenu()">
-                        <i class="fas fa-sign-out-alt" style="color:#ff9800"></i>
+                        <i class="fas fa-door-closed" style="color:#bd5501"></i>
                     </a>
                 </li>
             </ul>
             <!--Burger Menu(Mobile)-->
             <div class="hdr__nav__toggle" onclick="activeMenu()"></div>
             <span class="line"></span>
+        </div>
+
+
+         <div class="hdr__nav__user">
+            <!--Menu-->
+            <ul class="hdr__nav__user__menu">
+                <li class="hdr__nav__user__menu__item">
+                      <div class="tooltip">
+                          <span class="tooltiptext">Crea nuovo evento</span>     <!--tooltip da aggiustare-->
+                      </div>
+                      
+                    <a href="/user/createEvent" onclick="activeMenu()">
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </li>
+                <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Modifica evento</span>
+                      </div>
+                    <a href="/user/logout" onclick="activeMenu()">
+                        <i class="fas fa-edit" style="color:#ff9800"></i>
+                    </a>
+                </li>
+                <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Elimina evento</span>
+                      </div>
+                    <a href="/user/logout" onclick="activeMenu()">
+                        <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
+                    </a>
+                </li>
+                 <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Condividi</span>
+                      </div>
+                    <a href="/user/logout" onclick="activeMenu()">
+                        <i class="fas fa-share-square" style="color:#0389f7d2"></i>
+                    </a>
+                </li>
+            </ul>
         </div>
     </header>

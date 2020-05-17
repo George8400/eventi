@@ -78,7 +78,7 @@ input[type=password]{
 }
 textarea{
     color: var(--color-text);
-    width: 100vw;
+    width: 100%;
     margin: 0px 25px 0px;
     max-height: 300px;
 }
@@ -128,11 +128,18 @@ h6{
 .create-box-date{
     margin-top: 60px;
 }
+/* remove arrow select box */
 .create-box-date select{
     margin: 10px 4px;
     border-radius: 20px;
     box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
     -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.create-box-date select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
 }
 .create-box-date select:focus{
     border-radius: 20px;
