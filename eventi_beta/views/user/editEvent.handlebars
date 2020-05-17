@@ -1,6 +1,6 @@
-<form action="/user/createEvent" method="post" enctype="multipart/form-data">
+<form action="/user/eventi/editEvent/{{event._id}}?newMethod=PUT" method="post">
 
-    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Crea evento</h2>
+    <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Modifica evento</h2>
 
 
     
@@ -8,7 +8,7 @@
 
         {{!-- Title box --}}
         <div class="create-box"> 
-            <input type="text" name="title" class="create-txt" placeholder="Title event.." maxlength="35">
+            <input type="text" name="title" class="create-txt" placeholder="Title event.." maxlength="35" value="{{event.title}}">
         </div>
 
         
@@ -28,7 +28,9 @@
                     <span class="custom-file-container__custom-file__custom-file-control "></span>
                 </label>
 
-                <div class="custom-file-container__image-preview" style="overflow: hidden;"></div>
+                <div class="custom-file-container__image-preview" style="overflow: hidden; z-index: 1; ">
+                    <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{event.image}}" alt="" style="max-width: 100%; z-index: -1; position: relative; background-position: center center;">
+                </div>
             </div>
         </div>
 
@@ -41,19 +43,19 @@
 
         {{!-- Description box --}}
         <div class="create-box__description">
-            <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description.."></textarea>
+            <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description..">{{event.description}}</textarea>
         </div>
 
          {{!-- Location box --}}
         <div class="create-box create-box-side"> 
-            <input type="text" name="citta" class="create-txt" placeholder="Città">
-            <input type="text" name="provincia" class="create-txt" placeholder="Provincia">
+            <input type="text" name="citta" class="create-txt" placeholder="Città" value="{{event.citta}}">
+            <input type="text" name="provincia" class="create-txt" placeholder="Provincia" value="{{event.provincia}}">
         </div>
          <div class="create-box create-box-side create-box-address"> 
-            <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo">
+            <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo" value="{{event.indirizzo}}">
         </div>
          <div class="create-box create-box-side create-box-date"> 
-            <select type="text" name="giorno" class="create-txt" placeholder="giorno">
+            <select type="text" name="giorno" class="create-txt" placeholder="giorno" value="{{event.giorno}}">
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
@@ -86,7 +88,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-            <select type="text" name="mese" class="create-txt" placeholder="mese">
+            <select type="text" name="mese" class="create-txt" placeholder="mese" value="{{event.mese}}">
                 <option value="01">Gennaio</option>
                 <option value="02">Febbraio</option>
                 <option value="03">Marzo</option>
@@ -100,12 +102,12 @@
                 <option value="11">Novembre</option>
                 <option value="12">Dicembre</option>
             </select>
-            <select type="text" name="anno" class="create-txt" placeholder="anno">
+            <select type="text" name="anno" class="create-txt" placeholder="anno" value="{{event.anno}}">
                 <option value="2020">2020</option>
                 <option value="2021">2021</option> 
                 <option value="2022">2022</option>     
             </select>
-            <select type="text" name="ora" class="create-txt" placeholder="ora">
+            <select type="text" name="ora" class="create-txt" placeholder="ora" value="{{event.ora}}">
                 <option value="00:00">00:00</option>
                 <option value="00:30">00:30</option> 
                 <option value="01:00">01:00</option>

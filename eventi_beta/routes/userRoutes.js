@@ -27,7 +27,18 @@ router.route('/createEvent')
 router.route('/logout')
     .get(ensureAuthenticated, userController.getLogout);
 
+/* show events create user */
 router.route('/userEvents')
     .get(ensureAuthenticated, userController.getUserEvents);
+
+/* show single event of user */
+router.route('/eventi/:_id')
+    .get(ensureAuthenticated, userController.getSingleEventUser);
+
+    
+/* edit event */
+router.route('/eventi/editEvent/:_id')
+    .get(ensureAuthenticated, userController.getEditEvent)
+    .put(ensureAuthenticated, userController.submitEditEvent);
 
 module.exports = router;

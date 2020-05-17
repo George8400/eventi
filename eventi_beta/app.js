@@ -5,12 +5,14 @@ const {globalVariables} = require('./config/configurations');
 // Modules
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override');
 const path = require('path');
 const handlebars = require('express-handlebars');
 const fileUpload = require('express-fileupload');
 const session = require('express-session');
 const passport = require('passport');
 const flash = require('connect-flash');
+
  
 // Passport config
 require('./config/passport-google')(passport);
@@ -39,6 +41,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.engine('handlebars', handlebars({defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
 
+// Method Override Middleware
+app.use(methodOverride('newMethod'));
 
 // Session
 app.use(session({
@@ -54,13 +58,14 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
-// Use global variables
-app.use(globalVariables);
-
 
 
 // File Upload Middleware
 app.use(fileUpload());
+
+// Use global variables
+app.use(globalVariables);
+
 
 //ROUTES
 const indexRoutes = require('./routes/indexRoutes');

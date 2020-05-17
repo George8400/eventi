@@ -1,36 +1,29 @@
 
-{{#if event}}
-<h1 style="text-align: center;">Eventi creati di recenti</h1>
+<section class="container container-event">
 
-<div class="container">
-       
-    {{#each event}}
-       <a href="eventi/{{_id}}">
-            <section class="container__card">
-                <div class="container__title-views">
-                    <h1 class="title-event">{{title}}</h1>
-                    <div class="continer__views">
-                        <p><i class="fas fa-eye"></i>{{views}}</p>
-                     </div>
-                </div>
-                <p><i class="fas fa-map-marker-alt"></i> {{citta}}</p>
-                <p><i class="fas fa-calendar-day"></i> {{giorno}}-{{mese}}-{{anno}}</p>
-                <p><i class="fas fa-clock"></i> {{ora}}h</p>
-                {{!-- <img src="https://source.unsplash.com/random" style="max-width: 100%; position: relative" alt=""> --}}
-                <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{image}}" alt="">
-                <p>{{description}}</p>
-            </section>
-        </a>
-    {{/each}}    
-</div>
+    <h1 class="title-event">{{event.title}}</h1>
 
-{{else}}
+    <div class="box-image">
+        <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{event.image}}" alt="">
+    </div>
 
-    <h4 style="text-align: center; color: #555">Non ci sono eventi nella tua bacheca. Prova a crearne uno!</h4>
+    <div class="dati-event">
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{event.indirizzoMaps}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{event.citta}}, {{event.indirizzo}}</a></p>
+        <p><i class="fas fa-calendar-day"></i> {{event.giorno}}-{{event.mese}}-{{event.anno}}</p>
+        <p><i class="fas fa-clock"></i> {{event.ora}}h</p>
 
-{{/if}}
+        <p><i class="fas fa-eye"> </i> {{event.views}}</p>
+    </div>
 
-<!-- BUTTON DASHBOARD -->
+    <br>
+
+    <div class="dati-event">
+        <p class="description">{{event.description}}</p>
+    </div>  
+
+</section>
+
+<!--BUTTON DASHBOARD-->
 <div class="hdr__nav__user">
             <!--Menu-->
             <ul class="hdr__nav__user__menu">
@@ -47,7 +40,7 @@
                     <div class="tooltip">
                           <span class="tooltiptext">Modifica evento</span>
                       </div>
-                    <a href="#" onclick="activeMenu()">
+                    <a href="/user/eventi/editEvent/{{event._id}}" onclick="activeMenu()">
                         <i class="fas fa-edit" style="color:#ff9800"></i>
                     </a>
                 </li>
@@ -55,7 +48,7 @@
                     <div class="tooltip">
                           <span class="tooltiptext">Elimina evento</span>
                       </div>
-                    <a href="#" onclick="activeMenu()">
+                    <a href="/user/eventi/deleteEvent" onclick="activeMenu()">
                         <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
                     </a>
                 </li>
@@ -63,7 +56,7 @@
                     <div class="tooltip">
                           <span class="tooltiptext">Condividi</span>
                       </div>
-                    <a href="#" onclick="activeMenu()">
+                    <a href="/user/eventi/shareEvent" onclick="activeMenu()">
                         <i class="fas fa-share-square" style="color:#0389f7d2"></i>
                     </a>
                 </li>
