@@ -69,9 +69,13 @@ Header
     display: flex;
     justify-content: space-around;
 }
-
+.hdr__nav__menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .hdr__nav__menu__item {
-    display: inline-block;
+    display: flex;
     list-style: none;
     padding: 0 7px;
     letter-spacing: 1px;
@@ -108,7 +112,7 @@ Header
 .line{
     content: ' ';
     position: absolute;
-    top: 94px;
+    top: 10vh;
     left: 0;
     height: 2px;
     width: 100%;
@@ -260,6 +264,7 @@ Categories
     border-radius: 20px;
     box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
     user-select: none;
+    margin: 8px;
 }
 /* .container label .card h2{
     color: var(--color-text);
