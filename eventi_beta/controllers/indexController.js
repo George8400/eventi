@@ -59,6 +59,10 @@ module.exports = {
     getEvent: (req, res) => {
 
         const id = req.params._id;
+
+        EventSchema.findByIdAndUpdate({ _id: id}, {$inc: {views: 1}}, { new: true }, (err) => {
+            if(err) throw(err);
+        });
     
         EventSchema.findById(id).lean()
             .then(event => {

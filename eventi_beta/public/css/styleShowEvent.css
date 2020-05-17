@@ -8,10 +8,10 @@
     min-width: 200px;
     height: 45vh;
     line-height: 27px;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
     user-select: none;
-    overflow: hidden;
+    overflow: auto;
     cursor: pointer;
     color: var(--color-text);
     margin: 15px 10px;
@@ -27,12 +27,16 @@
     font-weight: 600;
     letter-spacing: 1px;
     line-height: 22px;
-    padding-left: 4px;
+    padding-left: 12px;
 }
 .container__card img{
     position: relative;
     background-size: cover;
     width: 100%;
+}
+
+.container__card .fas{
+    font-size: 14px;
 }
 
 @media screen and (max-width: 500px){

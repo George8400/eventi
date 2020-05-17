@@ -97,6 +97,11 @@ const EventSchema = new Schema({
     
     lng: {
         type: String,
+    },
+
+    views: {
+        type: Number,
+        default: 0
     }
 
 

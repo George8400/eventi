@@ -7,6 +7,15 @@
     font-size: 18px;
 }
 
+.container__title-views{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 14px 10px 9px 10px;
+}
+.container__views{
+    display: flex;
+}
 
 .title-event{
     font-size: 34px;
@@ -20,7 +29,7 @@
     align-items: center;
     flex-direction: column;
     line-height: 35px;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
     user-select: none;
 }
@@ -28,15 +37,14 @@
     max-width: 100%;
     height: auto;
     background-size: cover;
-    border-radius: 20px;
+    border-radius: 12px;
 }
 
 .dati-event{
-    min-width: 100%;
     max-width: 600px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     line-height: 44px;
 }
