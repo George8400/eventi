@@ -468,7 +468,7 @@ Custom scrollbar
 
   @media screen and (max-width: 540px){
     .cnt__btn {
-        width: 90%;
+        width: 100%;
     }
 
 }

@@ -4,7 +4,7 @@ module.exports = {
             return next();
         }
 
-        req.flash('error', 'Effettua il login per creare un evento e diventare un event manager');
+        req.flash('error', 'Effettua il login per poter creare un evento');
         res.redirect('/login');
     }
 }
