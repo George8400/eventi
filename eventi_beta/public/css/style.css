@@ -32,7 +32,7 @@ Header
     top: 0;
     left: 0; */
     width: 100%;
-    height: 10vh;
+    height: 70px;
     min-height: 50px;
     display: flex;
     justify-content: space-between;
@@ -112,7 +112,7 @@ Header
 .line{
     content: ' ';
     position: absolute;
-    top: 10vh;
+    top: 70px;
     left: 0;
     height: 2px;
     width: 100%;
@@ -238,7 +238,7 @@ Categories
     flex-wrap: wrap;
     border-radius: 10px;
     padding: 3vh 9vw;
-    margin: 25px auto;
+    margin: 25px auto 100px;
     min-height: 40vh;
 }
 
@@ -318,6 +318,15 @@ Send Button
     height: 80px;
     margin-bottom: 100px;
 }
+.cnt__btn-edit{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+    height: 80px;
+    margin-bottom: 100px;
+}
 .cnt__btn button{
     position: relative;
     background: transparent; 
@@ -327,14 +336,65 @@ Send Button
     height: 60px;
     cursor: pointer;
     outline: none;
-    
-
     box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
      -5px -5px 11px rgba(255, 255, 255, 0.75);
-
+     transition: 0.2s;
                  
 }
-
+.cnt__btn-edit button{
+    position: relative;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+     transition: 0.2s;            
+}
+.cnt__btn-edit a {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
+    transition: 0.2s;
+}
+.cnt__btn-edit a i {
+    color: #f32e0bd2;
+    transition: 0.2s;
+}
+.cnt__btn-edit button .fas{
+    color: rgb(10, 181, 17);
+}
+.cnt__btn-edit button:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn-edit button:active .fas{
+    transform: scale(0.94);
+    color: rgb(10, 181, 17);
+    transition: 0s;
+}
+.cnt__btn-edit a:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn-edit a:active .fas{
+    transform: scale(0.94);
+    color: #f32e0bd2;
+    transition: 0s;
+}
 .cnt__btn button:active{
     box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
     inset -5px -5px 11px rgba(255, 255, 255, 0.75);
@@ -346,17 +406,16 @@ Send Button
 }
 .cnt__btn button:hover .fas{
     color: var(--color-second);
-    text-shadow: 1px 1px 4px #fff;
 }
 .fas{ /* classe dell'icona */
     font-size: 30px;
     color: var(--color-text);
-    transition: 0.0s;
+    transition: 0.2s;
 }
 .fab{ /* classe dell'icona */
     font-size: 30px;
     color: var(--color-text);
-    transition: 0.3s;
+    transition: 0.2s;
 }
 
 
@@ -367,7 +426,7 @@ Footer
 .footer{
     background: transparent;
     position: relative;
-    margin: 200px 0 100px 0;
+    margin: 200px 0 50px 0;
     height: 70px;
     width: 100%;
     padding: 10px;
@@ -406,3 +465,10 @@ Custom scrollbar
     background: #555; 
     
   }
+
+  @media screen and (max-width: 540px){
+    .cnt__btn {
+        width: 90%;
+    }
+
+}

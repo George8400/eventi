@@ -3,8 +3,8 @@
 }
 
 .container__card{
-    min-width: 200px;
-    max-width: 450px;
+    min-width: 150px;
+    width: 35vw;
     height: 35vh;
     line-height: 27px;
     border-radius: 12px;
@@ -13,7 +13,7 @@
     overflow: auto;
     cursor: pointer;
     color: var(--color-text);
-    margin: 15px 10px;
+    margin: 35px 10px;
 }
 .container__card h2{
     padding: 10px 0 8px 4px;
@@ -32,10 +32,16 @@
     position: relative;
     background-size: cover;
     width: 100%;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
 .container__card .fas{
     font-size: 14px;
+}
+
+.container__title-views h1{
+    font-size: 24px;
 }
 
 @media screen and (max-width: 540px){

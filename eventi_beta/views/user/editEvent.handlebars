@@ -1,4 +1,12 @@
-<form action="/user/eventi/editEvent/{{event._id}}?newMethod=PUT" method="post">
+
+        <div class="alert-warning">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+            <p>Se si continua con la modifica, bisogna ricompilare i tag di categoria altrimenti non verranno salvati.</p>
+        </div>
+
+
+
+<form action="/user/eventi/editEvent/{{event._id}}?newMethod=PUT" method="post" enctype="multipart/form-data">
 
     <h2 style="text-align: center; color: var(--color-text); letter-spacing: 1px;">Modifica evento</h2>
 
@@ -19,7 +27,7 @@
                 <label><a href="javascript:void(0)" class="custom-file-container__image-clear" style="display: none;">&times;</a></label>
 
                 <div class="create-box">
-                    <input type="file" id="file" name="image" accept="*" aria-label="Multiple Select Files" class="create-txt input-file"required>
+                    <input type="file" id="file" name="image" accept="*" aria-label="Multiple Select Files" class="create-txt input-file">
                     <label for="file" class="create-txt create-txt-image"><i class="fas fa-upload"></i><h6>Upload Image</h6></label>
                 </div>
 
@@ -29,7 +37,12 @@
                 </label>
 
                 <div class="custom-file-container__image-preview" style="overflow: hidden; z-index: 1; ">
-                    <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{event.image}}" alt="" style="max-width: 100%; z-index: -1; position: relative; background-position: center center;">
+                    <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{event.image}}" alt="" 
+                        style=" width: 100%; 
+                                {{!-- height: 100%; --}}
+                                z-index: -1; 
+                                position: relative; 
+                                display: block;">
                 </div>
             </div>
         </div>
@@ -41,9 +54,10 @@
         </script>
 
 
+
         {{!-- Description box --}}
         <div class="create-box__description">
-            <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description..">{{event.description}}</textarea>
+            <textarea type="text" rows="8" name="description" class="create-txt " placeholder="Description.." value="">{{event.description}}</textarea>
         </div>
 
          {{!-- Location box --}}
@@ -55,7 +69,8 @@
             <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo" value="{{event.indirizzo}}">
         </div>
          <div class="create-box create-box-side create-box-date"> 
-            <select type="text" name="giorno" class="create-txt" placeholder="giorno" value="{{event.giorno}}">
+            <select type="text" name="giorno" class="create-txt" placeholder="giorno">
+                <option value="{{event.giorno}}">{{event.giorno}}</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
@@ -88,7 +103,8 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-            <select type="text" name="mese" class="create-txt" placeholder="mese" value="{{event.mese}}">
+            <select type="text" name="mese" class="create-txt" placeholder="mese">
+                <option value="{{event.mese}}">{{event.mese}}</option>
                 <option value="01">Gennaio</option>
                 <option value="02">Febbraio</option>
                 <option value="03">Marzo</option>
@@ -103,11 +119,13 @@
                 <option value="12">Dicembre</option>
             </select>
             <select type="text" name="anno" class="create-txt" placeholder="anno" value="{{event.anno}}">
+                <option value="{{event.anno}}">{{event.anno}}</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option> 
                 <option value="2022">2022</option>     
             </select>
             <select type="text" name="ora" class="create-txt" placeholder="ora" value="{{event.ora}}">
+                <option value="{{event.ora}}">{{event.ora}}</option>
                 <option value="00:00">00:00</option>
                 <option value="00:30">00:30</option> 
                 <option value="01:00">01:00</option>
@@ -166,6 +184,11 @@
 
 
     <h3 style="text-align: center; color: var(--color-text);">Aggiungi i servizi che il tuo evento garantisce</h3>
+
+<div class="container">
+
+
+
 
 
     <!-- CATEGORIES -->
@@ -239,10 +262,16 @@
 
 
     <!-- SEND BUTTON -->
-    <div class="cnt__btn">
+    <div class="cnt__btn-edit">
+       
+       <a href="/user/userEvents/annulla">
+            <i class="fas fa-times"></i>
+        </a>
+
         <button type="submit">
-            <i class="fas fa-arrow-right"></i>
+            <i class="fas fa-check"></i>
         </button>
+ 
     </div>
 </form>
 
