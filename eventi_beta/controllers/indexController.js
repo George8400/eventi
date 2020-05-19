@@ -17,7 +17,11 @@ const passport = require('passport');
 module.exports = {
 
     index: (req, res) => {
+
+        console.log(req.ip);
+
         res.render('index/categories');
+
     },
 
     searchEvent: (req, res) => {

@@ -1,6 +1,10 @@
 .hdr__nav__user{
     position: fixed;
-    top: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    top: 0;
     left: 12px;
     z-index: 1;
 }
@@ -54,6 +58,7 @@
         bottom: 0;
         left: 0;
         background: #fff;
+        height: 60px;
         width: 100%;
         margin: 0 auto;
         z-index: 1;

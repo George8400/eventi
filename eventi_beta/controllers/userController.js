@@ -36,6 +36,42 @@ module.exports = {
         res.render('user/categories');
     },
 
+    searchEvent: (req, res) => {
+
+        const search_box = req.body.search_box.toUpperCase();
+        const category = req.body.categories;
+        
+
+        if(category === undefined){
+            EventSchema.find({cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                if(event.length){
+                    console.log(event);
+                    res.render('user/showEvent', {event: event});
+                }
+                else{
+                    EventSchema.find({titleUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                        console.log(event);
+                        res.render('user/showEvent', {event: event});
+                   }); 
+                }
+                
+           }); 
+        }
+        else if(!search_box.length){
+            EventSchema.find({categories: { $all: category}}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                console.log(event);
+                res.render('user/showEvent', {event: event});
+           }); 
+        }
+        else{
+            EventSchema.find({categories: { $all: category}, cittaUtility: search_box}, null ,{sort: {dateUtility: 1}}).lean().then(event =>{  //lean() risolve il problema di handlbars, convertendo gli oggetti in oggetti json
+                console.log(event);
+                res.render('user/showEvent', {event: event});
+            }); 
+        }
+
+    },
+
     /* get view/user/createEvent */
     createEvent: (req, res) => {
         res.render('user/createEvent');
@@ -119,11 +155,16 @@ module.exports = {
     /* Show event in edit event */
     getEditEvent: (req, res) => {
 
+        console.log('entriamo');
         
         const event_id = req.params._id;
+        const user_id = req.user._id;
 
-        EventSchema.findById({
-                _id: event_id
+        console.log(event_id + "     " + user_id);
+
+        EventSchema.findOne({
+                _id: event_id,
+                user: user_id
             }).lean()
             .then(event => {
                 res.render('user/editEvent', {
@@ -131,14 +172,11 @@ module.exports = {
                 });
             }).catch(err => console.log(err));
             
-            
     },
 
     /* submit edit event */
     submitEditEvent: (req, res) => {
 
-
-        console.log('sfaasf');
 
         const event_id = req.params._id;
 
@@ -267,6 +305,7 @@ module.exports = {
         res.redirect('/user/userEvents');
     },
 
+    /* delete event */
     getDeleteEvent: (req, res) => {
 
         console.log('siamo qua');
@@ -280,13 +319,6 @@ module.exports = {
     },
 
 
-    /* Logout user */
-    getLogout: (req, res) => {
-        req.logout();
-        req.flash('success_msg', 'Logout effettuato con successo');
-        res.redirect('/login');
-    },
-
 
     /* Show user events */
     getUserEvents: (req, res) => {
@@ -295,13 +327,18 @@ module.exports = {
 
         EventSchema.find({
             user: user_id
-        }).lean().then(event => {
-
-            res.render('user/showEvent', {
-                event: event
+        }).lean()
+            .then(event => {
+                UserSchema.find({
+                    _id: user_id
+                }).lean()
+                .then(user => {
+                    res.render('user/showEvent', {
+                        event: event, user: user
+                });
+                console.log(user[0].email);
             });
-
-            console.log(event);
+            
         }).catch(err => console.log(err));
 
     },
@@ -309,15 +346,39 @@ module.exports = {
     /* Show single event of user */
     getSingleEventUser: (req, res) => {
 
-        const id = req.params._id;
+        const event_id = req.params._id;
+        const user_id = req.user._id;
 
-        EventSchema.findById(id).lean()
-            .then(event => {
+        EventSchema.findOne({
+            _id: event_id, 
+            user: user_id
+        }).lean()
+            .then(eventUser => {
+                if(!eventUser){
+                    EventSchema.findOne({
+                        _id: event_id, 
+                    }).lean()
+                        .then(event => {  
+                            res.render('user/schedaEvent', {
+                                event: event
+                            });
+                        }).catch(err => console.log(err));
+                } else {
                 res.render('user/schedaEvent', {
-                    event: event
+                    eventUser: eventUser
                 });
+            }
             }).catch(err => console.log(err));
+    },
 
+
+    
+
+    /* Logout user */
+    getLogout: (req, res) => {
+        req.logout();
+        req.flash('success_msg', 'Logout effettuato con successo');
+        res.redirect('/login');
     },
 
 };

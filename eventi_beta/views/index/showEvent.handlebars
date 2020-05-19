@@ -1,4 +1,9 @@
-<h1 style="text-align: center;">Eventi trovati</h1>
+
+
+
+
+{{#if event}}
+<h2 style="text-align: center; color: #555">Eventi trovati</h2>
 
 <div class="container">
        
@@ -21,3 +26,9 @@
         </a>
     {{/each}}    
 </div>
+
+{{else}}
+
+    <h3 style="text-align: center; color: #555; margin: 80px 30px">Non sono presenti eventi con queste caratteristiche, prova con meno filtri</h3>
+
+{{/if}}

@@ -1,4 +1,91 @@
 
+
+
+{{#if eventUser}}
+<section class="container container-event">
+
+    <h1 class="title-event">{{eventUser.title}}</h1>
+
+    <div class="box-image">
+        <img src="https://eventi-images.s3.eu-central-1.amazonaws.com/{{eventUser.image}}" alt="">
+    </div>
+
+    <div class="dati-event">
+        <p><a href="https://www.google.com/maps/search/?api=1&query={{eventUser.indirizzoMaps}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{eventUser.citta}}, {{eventUser.indirizzo}}</a></p>
+        <p><i class="fas fa-calendar-day"></i> {{eventUser.giorno}}-{{eventUser.mese}}-{{eventUser.anno}}</p>
+        <p><i class="fas fa-clock"></i> {{eventUser.ora}}h</p>
+
+        <p><i class="fas fa-eye"> </i> {{eventUser.views}}</p>
+    </div>
+
+    <br>
+
+    <div class="dati-event">
+        <p class="description">{{eventUser.description}}</p>
+    </div>  
+
+</section>
+
+    <!--BUTTON DASHBOARD-->
+<div class="hdr__nav__user">
+            <!--Menu-->
+            <ul class="hdr__nav__user__menu">
+                <li class="hdr__nav__user__menu__item">
+                      <div class="tooltip">
+                          <span class="tooltiptext">Dashboard</span>     <!--tooltip da aggiustare-->
+                      </div>
+                      
+                    <a href="/user/userEvents" onclick="activeMenu()">
+                        <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                    </a>
+                </li>
+                <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Modifica evento</span>
+                      </div>
+                    <a href="/user/eventi/editEvent/{{eventUser._id}}" onclick="activeMenu()">
+                        <i class="fas fa-edit" style="color:#ff9800"></i>
+                    </a>
+                </li>
+                <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Elimina evento</span>
+                      </div>
+                    <a href="/user/eventi/deleteEvent/{{eventUser._id}}?newMethod=DELETE" method="post" onclick="activeMenu()">
+                        <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
+                    </a>
+                </li>
+                 <li class="hdr__nav__user__menu__item">
+                    <div class="tooltip">
+                          <span class="tooltiptext">Condividi</span>
+                      </div>
+                    <a href="/user/eventi/shareEvent" onclick="activeMenu()">
+                        <i class="fas fa-share-square" style="color:#0389f7d2"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+{{!-- {{else}}
+
+    <h4 style=" text-align: center;
+                color: #555;
+                padding: 20px;
+                margin: 10vh 12vw;
+                background: #ffd105;
+                border-radius: 10px;
+                line-height: 36px;">
+        Sembra che qualcosa sia andato storto. L'evento a cui stai cercando di accedere o è stato rimosso,
+        o non si hanno i permessi per visualizzarlo. Per ulteriori informazioni, non esiti a contattare il nostro supporto tecnico,
+        devono lavorare anche loro. 
+    </h4> --}}
+
+{{/if}}
+
+
+
+{{#if event}}
 <section class="container container-event">
 
     <h1 class="title-event">{{event.title}}</h1>
@@ -23,7 +110,7 @@
 
 </section>
 
-<!--BUTTON DASHBOARD-->
+    <!--BUTTON DASHBOARD-->
 <div class="hdr__nav__user">
             <!--Menu-->
             <ul class="hdr__nav__user__menu">
@@ -36,29 +123,22 @@
                         <i class="fas fa-tachometer-alt" style="color: #555"></i>
                     </a>
                 </li>
-                <li class="hdr__nav__user__menu__item">
-                    <div class="tooltip">
-                          <span class="tooltiptext">Modifica evento</span>
-                      </div>
-                    <a href="/user/eventi/editEvent/{{event._id}}" onclick="activeMenu()">
-                        <i class="fas fa-edit" style="color:#ff9800"></i>
-                    </a>
-                </li>
-                <li class="hdr__nav__user__menu__item">
-                    <div class="tooltip">
-                          <span class="tooltiptext">Elimina evento</span>
-                      </div>
-                    <a href="/user/eventi/deleteEvent/{{event._id}}?newMethod=DELETE" method="post" onclick="activeMenu()">
-                        <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
-                    </a>
-                </li>
-                 <li class="hdr__nav__user__menu__item">
-                    <div class="tooltip">
-                          <span class="tooltiptext">Condividi</span>
-                      </div>
-                    <a href="/user/eventi/shareEvent" onclick="activeMenu()">
-                        <i class="fas fa-share-square" style="color:#0389f7d2"></i>
-                    </a>
-                </li>
             </ul>
         </div>
+
+
+{{!-- {{else}}
+
+    <h4 style=" text-align: center;
+                color: #555;
+                padding: 20px;
+                margin: 10vh 12vw;
+                background: #ffd105;
+                border-radius: 10px;
+                line-height: 36px;">
+        Sembra che qualcosa sia andato storto. L'evento a cui stai cercando di accedere o è stato rimosso,
+        o non si hanno i permessi per visualizzarlo. Per ulteriori informazioni, non esiti a contattare il nostro supporto tecnico,
+        devono lavorare anche loro. 
+    </h4> --}}
+
+{{/if}} 

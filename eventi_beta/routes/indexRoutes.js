@@ -27,6 +27,7 @@ router.route('/login')
  /* login google */
  router.route('/auth/google')
 	.get(indexController.getAuthGoogle);
+	
 router.route('/auth/google/callback')
 	.get(indexController.getAuthGoogleCallback);
 

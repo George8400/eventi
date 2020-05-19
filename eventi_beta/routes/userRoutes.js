@@ -16,6 +16,10 @@ router.all('/*', ensureAuthenticated, (req, res, next) => {
 router.route('/')
     .get(userController.index);
 
+/* Search events */
+router.route('/eventi')
+    .post(userController.searchEvent);    
+
 /* create event */ 
 router.route('/createEvent')
 	.get(/* ensureAuthenticated, */ userController.createEvent)
@@ -34,6 +38,8 @@ router.route('/userEvents')
 /* show single event of user */
 router.route('/eventi/:_id')
     .get(/* ensureAuthenticated, */ userController.getSingleEventUser);
+
+
 
     
 /* edit event */

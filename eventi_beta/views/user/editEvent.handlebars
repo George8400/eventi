@@ -1,9 +1,10 @@
 
-        <div class="alert-warning">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-            <p>Se si continua con la modifica, bisogna ricompilare i tag di categoria altrimenti non verranno salvati.</p>
-        </div>
 
+{{#if event}}   
+    <div class="alert-warning">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+        <p>Se si continua con la modifica, bisogna ricompilare i tag di categoria altrimenti non verranno salvati.</p>
+    </div>
 
 
 <form action="/user/eventi/editEvent/{{event._id}}?newMethod=PUT" method="post" enctype="multipart/form-data">
@@ -15,7 +16,7 @@
     <section class="form-create">
 
         {{!-- Title box --}}
-        <div class="create-box"> 
+        <div class="create-box">
             <input type="text" name="title" class="create-txt" placeholder="Title event.." maxlength="35" value="{{event.title}}">
         </div>
 
@@ -315,3 +316,21 @@
                 </li>
             </ul>
         </div>
+
+
+{{else}}
+
+    <h4 style=" text-align: center;
+                color: #555;
+                padding: 20px;
+                margin: 10vh 12vw;
+                background: #ffd105;
+                border-radius: 10px;
+                line-height: 36px;">
+        Sembra che qualcosa sia andato storto. L'evento a cui stai cercando di accedere o è stato rimosso,
+        o non si hanno i permessi per visualizzarlo. Per ulteriori informazioni, non esiti a contattare il nostro supporto tecnico,
+        devono lavorare anche loro. 
+    </h4>
+
+{{/if}}
+
