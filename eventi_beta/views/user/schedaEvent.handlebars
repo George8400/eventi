@@ -35,33 +35,43 @@
                           <span class="tooltiptext">Dashboard</span>     <!--tooltip da aggiustare-->
                       </div>
                       
-                    <a href="/user/userEvents" onclick="activeMenu()">
-                        <i class="fas fa-tachometer-alt" style="color: #555"></i>
-                    </a>
+                   <form action="/user/userEvents">
+                        <button type="submit" >
+                            <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                        </button>
+                    </form>
                 </li>
                 <li class="hdr__nav__user__menu__item">
                     <div class="tooltip">
                           <span class="tooltiptext">Modifica evento</span>
                       </div>
-                    <a href="/user/eventi/editEvent/{{eventUser._id}}" onclick="activeMenu()">
-                        <i class="fas fa-edit" style="color:#ff9800"></i>
-                    </a>
+                       <form action="/user/eventi/editEvent/{{eventUser._id}}?newMethod=GET" method="get">
+                        <button type="submit" >
+                            <i class="fas fa-edit" style="color:#ff9800"></i>
+                        </button>
+                    </form>
                 </li>
                 <li class="hdr__nav__user__menu__item">
                     <div class="tooltip">
                           <span class="tooltiptext">Elimina evento</span>
                       </div>
-                    <a href="/user/eventi/deleteEvent/{{eventUser._id}}?newMethod=DELETE" method="post" onclick="activeMenu()">
-                        <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
-                    </a>
+
+                       <form action="/user/eventi/deleteEvent/{{eventUser._id}}?newMethod=DELETE" method="post">
+                        <button type="submit" >
+                            <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
+                        </button>
+                    </form>
                 </li>
                  <li class="hdr__nav__user__menu__item">
                     <div class="tooltip">
                           <span class="tooltiptext">Condividi</span>
                       </div>
-                    <a href="/user/eventi/shareEvent" onclick="activeMenu()">
-                        <i class="fas fa-share-square" style="color:#0389f7d2"></i>
-                    </a>
+
+                       <form action="/user/eventi/shareEvent">
+                        <button type="submit" >
+                            <i class="fas fa-share-square" style="color:#0389f7d2"></i>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>

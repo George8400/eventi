@@ -19,28 +19,22 @@
     padding: 0 7px;
     letter-spacing: 1px;
 }
-.hdr__nav__user__menu__item a {
-    text-decoration: none;
+.hdr__nav__user__menu__item button {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent; 
+    background: transparent;
     border: none;
     border-radius: 50%;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
     outline: none;
-    
-
-    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
-     -5px -5px 11px rgba(255, 255, 255, 0.75);
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
+    transition: 0.2s;
 }
-.hdr__nav__user__menu__item a .fas{
+.hdr__nav__user__menu__item button .fas{
     font-size: 15px;
 }
-.hdr__nav__user__menu__item a:active{
+.hdr__nav__user__menu__item button:active{
     transform: scale(0.98);
     box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
                 inset -5px -5px 11px rgba(255, 255, 255, 0.75);

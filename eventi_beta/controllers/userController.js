@@ -21,8 +21,6 @@ const UserSchema = require('../models/UserModel');
 
 
 
-
-
 // initialized S3 for file upload
 const s3 = new AWS.S3({
     accessKeyId: AWS_ACCESS_KEY,
@@ -155,12 +153,8 @@ module.exports = {
     /* Show event in edit event */
     getEditEvent: (req, res) => {
 
-        console.log('entriamo');
-        
         const event_id = req.params._id;
         const user_id = req.user._id;
-
-        console.log(event_id + "     " + user_id);
 
         EventSchema.findOne({
                 _id: event_id,
