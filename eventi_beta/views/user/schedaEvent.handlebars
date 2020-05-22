@@ -36,7 +36,7 @@
                       </div>
                       
                    <form action="/user/userEvents">
-                        <button type="submit" >
+                        <button id="btn-dashboard" type="submit" >
                             <i class="fas fa-tachometer-alt" style="color: #555"></i>
                         </button>
                     </form>
@@ -46,7 +46,7 @@
                           <span class="tooltiptext">Modifica evento</span>
                       </div>
                        <form action="/user/eventi/editEvent/{{eventUser._id}}?newMethod=GET" method="get">
-                        <button type="submit" >
+                        <button id="btn-edit" type="submit" >
                             <i class="fas fa-edit" style="color:#ff9800"></i>
                         </button>
                     </form>
@@ -56,11 +56,11 @@
                           <span class="tooltiptext">Elimina evento</span>
                       </div>
 
-                       <form action="/user/eventi/deleteEvent/{{eventUser._id}}?newMethod=DELETE" method="post">
-                        <button type="submit" >
+                    <div>
+                        <button id="btn-delete" onclick="confirmDelete()">
                             <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
                         </button>
-                    </form>
+                    </div>
                 </li>
                  <li class="hdr__nav__user__menu__item">
                     <div class="tooltip">
@@ -68,7 +68,7 @@
                       </div>
 
                        <form action="/user/eventi/shareEvent">
-                        <button type="submit" >
+                        <button id="#btn-share" type="submit" >
                             <i class="fas fa-share-square" style="color:#0389f7d2"></i>
                         </button>
                     </form>
@@ -76,6 +76,23 @@
             </ul>
         </div>
 
+{{!-- POPUP DELETE CONFIRM --}}
+<div id="confirm-delete" class="confirm-delete">
+    <form action="/user/eventi/deleteEvent/{{eventUser._id}}?newMethod=DELETE" method="post">
+
+        <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
+
+        <p>Sicuro di voler eliminare l'evento {{eventUser.title}}?</p>
+
+        <button type="button" style="background:rgb(10, 181, 17)" onclick="confirmDelete()">
+            Annulla
+        </button>
+
+        <button type="submit" style="background:#f32e0bd2">
+            Conferma
+        </button>
+    </form>
+</div>
 
 {{!-- {{else}}
 
@@ -129,9 +146,11 @@
                           <span class="tooltiptext">Dashboard</span>     <!--tooltip da aggiustare-->
                       </div>
                       
-                    <a href="/user/userEvents" onclick="activeMenu()">
-                        <i class="fas fa-tachometer-alt" style="color: #555"></i>
-                    </a>
+                   <form action="/user/userEvents">
+                        <button type="submit" >
+                            <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                        </button>
+                    </form>
                 </li>
             </ul>
         </div>

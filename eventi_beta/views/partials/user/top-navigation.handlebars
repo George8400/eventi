@@ -22,16 +22,34 @@
                     <div class="tooltip">
                           <span class="tooltiptext">Logout</span>
                       </div>
-                    <a href="/user/logout" onclick="activeMenu()">
+                      <div>
+                    <button type="button" id="btn-logout" onclick="confirmLogout()">
                         <i class="fas fa-door-closed" style="color:#bd5501"></i>
-                    </a>
+                    </button>
+                    </div>
                 </li>
             </ul>
             <!--Burger Menu(Mobile)-->
             <div class="hdr__nav__toggle" onclick="activeMenu()"></div>
             <span class="line"></span>
         </div>
-
-
          
     </header>
+
+
+    <div id="confirm-logout" class="confirm-logout">
+    <form action="/user/logout" method="get" class="confirm-logout-form">
+
+        <i class="fas fa-sign-out-alt" style="color: #f32e0bd2"></i>
+
+        <p>Procedere con il logout?</p>
+
+        <button type="button" style="background:rgb(10, 181, 17)" onclick="confirmLogout()">
+            Annulla
+        </button>
+
+        <button type="submit" style="background:#f32e0bd2">
+            Logout
+        </button>
+    </form>
+</div>

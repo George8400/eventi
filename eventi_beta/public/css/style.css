@@ -81,7 +81,7 @@ Header
     letter-spacing: 1px;
 }
 
-.hdr__nav__menu__item a {
+.hdr__nav__menu__item a{
     text-decoration: none;
     position: relative;
     display: flex;
@@ -94,10 +94,25 @@ Header
     height: 40px;
     cursor: pointer;
     outline: none;
-    
-
     box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
      -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.hdr__nav__menu__item button {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+     z-index: 12;
 }
 .hdr__nav__menu__item a .fas{
     font-size: 15px;
@@ -108,7 +123,73 @@ Header
     box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
                 inset -5px -5px 11px rgba(255, 255, 255, 0.75);
 }
+.hdr__nav__menu__item button .fas{
+    font-size: 15px;
+    color: rgb(10, 181, 17);
+}
+.hdr__nav__menu__item button:active{
+    transform: scale(0.98);
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+/* Popup confirm delete */
+.confirm-logout{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+    z-index: 10;
+    visibility: hidden;
+}
+.confirm-logout-form{
+    display: flex;
+    bottom: -100vh;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+    z-index: 11;
+    max-width: 327px;
+    flex-wrap: wrap;
+    margin: auto 10vw;
+    background: #fff;
+    transform: translateY(-80vh);
+    border-radius: 10px;
+    padding: 63px;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
+    line-height: 3;
+}
+.confirm-logout.show-form-bg{
+    background: #ffffffa6;
+    visibility: visible;
+}
+.confirm-logout-form.show-form{
+    transform: translateY(-5vh);
+}
+.confirm-logout-form p{
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 10px;
+}
+.confirm-logout-form i{
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.confirm-logout-form button{
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 2px 10px;
+    cursor: pointer;
+}
 
+
+/* Style line bottom header */
 .line{
     content: ' ';
     position: absolute;
@@ -323,8 +404,8 @@ Send Button
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
     height: 80px;
+    margin: 0 23vw;
     margin-bottom: 100px;
 }
 .cnt__btn button{
@@ -332,8 +413,8 @@ Send Button
     background: transparent; 
     border: none;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
     cursor: pointer;
     outline: none;
     box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
@@ -408,7 +489,7 @@ Send Button
     color: var(--color-second);
 }
 .fas{ /* classe dell'icona */
-    font-size: 30px;
+    font-size: 25px;
     color: var(--color-text);
     transition: 0.2s;
 }

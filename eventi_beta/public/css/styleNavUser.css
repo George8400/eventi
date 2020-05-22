@@ -24,8 +24,8 @@
     background: transparent;
     border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     outline: none;
     box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
@@ -52,7 +52,7 @@
         bottom: 0;
         left: 0;
         background: #fff;
-        height: 60px;
+        height: 69px;
         width: 100%;
         margin: 0 auto;
         z-index: 1;
@@ -74,7 +74,5 @@
         letter-spacing: 1px;
         margin: 10px 0 18px;
     }
-
-
 
 }
