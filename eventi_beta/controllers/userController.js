@@ -111,12 +111,49 @@ module.exports = {
         indirizzo = indirizzo.split(' ').join('+');
         var addressParser = citta + '%2C' + '+' + indirizzo + '%2C';
 
+        //create oraUtility_i for Calendar
+        /* ora di inizio */
+        let oraUtility_i = req.body.ora_i;
+        oraUtility_i = Number(oraUtility_i.split(':').join("")) - 200;
+        oraUtility_i = oraUtility_i.toString();
 
-        // create dateUtility
-        const day = req.body.giorno;
-        const month = req.body.mese;
-        const year = req.body.anno;
-        const data = (year + month + day);
+        if(oraUtility_i == '-200') oraUtility_i = '2200';
+        if(oraUtility_i == '-170') oraUtility_i = '2230';
+        if(oraUtility_i == '-100') oraUtility_i = '2300';
+        if(oraUtility_i == '-70') oraUtility_i = '2330'; 
+        if(oraUtility_i == '0') oraUtility_i = '0000';
+        if(oraUtility_i == '30') oraUtility_i = '0030';       
+
+        if(oraUtility_i.length == 3) {
+            oraUtility_i = '0' + oraUtility_i;
+        }
+        /* Ora di fine */
+        let oraUtility_f = req.body.ora_f;
+        oraUtility_f = Number(oraUtility_f.split(':').join("")) - 200;
+        oraUtility_f = oraUtility_f.toString();
+
+        if(oraUtility_f == '-200') oraUtility_f = '2200';
+        if(oraUtility_f == '-170') oraUtility_f = '2230';
+        if(oraUtility_f == '-100') oraUtility_f = '2300';
+        if(oraUtility_f == '-70') oraUtility_f = '2330'; 
+        if(oraUtility_f == '0') oraUtility_f = '0000';
+        if(oraUtility_f == '30') oraUtility_f = '0030';       
+
+        if(oraUtility_f.length == 3) {
+            oraUtility_f = '0' + oraUtility_f;
+        }
+
+
+        // create dateUtility_i
+        const day_i = req.body.giorno_i;
+        const month_i = req.body.mese_i;
+        const year_i = req.body.anno_i;
+        const data_i = (year_i + month_i + day_i);
+        // create dateUtility_f
+        const day_f = req.body.giorno_f;
+        const month_f = req.body.mese_f;
+        const year_f = req.body.anno_f;
+        const data_f = (year_f + month_f + day_f);
 
         // Save post in mongodb
         const newEvent = new EventSchema({
@@ -132,11 +169,20 @@ module.exports = {
             provinciaUtility: req.body.provincia.toUpperCase(),
             indirizzo: req.body.indirizzo,
             indirizzoMaps: addressParser,
-            giorno: req.body.giorno,
-            mese: req.body.mese,
-            anno: req.body.anno,
-            ora: req.body.ora,
-            dateUtility: data,
+            /* data inizio */
+            giorno_i: req.body.giorno_i,
+            mese_i: req.body.mese_i,
+            anno_i: req.body.anno_i,
+            ora_i: req.body.ora_i,
+            dateUtility_i: data_i,
+            hoursUtility_i: oraUtility_i,
+            /* data fine */
+            giorno_f: req.body.giorno_f,
+            mese_f: req.body.mese_f,
+            anno_f: req.body.anno_f,
+            ora_f: req.body.ora_f,
+            dateUtility_f: data_f,
+            hoursUtility_f: oraUtility_f,
 
         });
 
@@ -174,8 +220,6 @@ module.exports = {
 
         const event_id = req.params._id;
 
-        console.log(req.files);
-
         if (req.files) {
             // upload image
             let file = req.files.image;
@@ -205,11 +249,26 @@ module.exports = {
         // create addressParser for maps
         let citta = req.body.citta;
         let indirizzo = req.body.indirizzo;
-
         citta = citta.split(' ').join('+');
         indirizzo = indirizzo.split(' ').join('+');
         var addressParser = citta + '%2C' + '+' + indirizzo;
 
+
+        //create hoursUtility for Calendar
+        let oraUtility = req.body.ora;
+        oraUtility = Number(oraUtility.split(':').join("")) - 200;
+        oraUtility = oraUtility.toString();
+
+        if(oraUtility == '-200') oraUtility = '2200';
+        if(oraUtility == '-170') oraUtility = '2230';
+        if(oraUtility == '-100') oraUtility = '2300';
+        if(oraUtility == '-70') oraUtility = '2330'; 
+        if(oraUtility == '0') oraUtility = '0000';
+        if(oraUtility == '30') oraUtility = '0030';       
+
+        if(oraUtility.length == 3) {
+            oraUtility = '0' + oraUtility;
+        }
 
         // create dateUtility
         const day = req.body.giorno;
@@ -234,11 +293,20 @@ module.exports = {
                 event.provinciaUtility = req.body.provincia.toUpperCase();
                 event.indirizzo = req.body.indirizzo;
                 event.indirizzoMaps = addressParser;
-                event.giorno = req.body.giorno;
-                event.mese = req.body.mese;
-                event.anno = req.body.anno;
-                event.ora = req.body.ora;
-                event.dateUtility = data;
+                /* data inizio */
+                event.giorno_i = req.body.giorno_i;
+                event.mese_i = req.body.mese_i;
+                event.anno_i = req.body.anno_i;
+                event.ora_i = req.body.ora_i;
+                event.dateUtility_i = data_i;
+                event.hoursUtility_i = oraUtility_i;
+                /* data fine */
+                event.giorno_f = req.body.giorno_f;
+                event.mese_f = req.body.mese_f;
+                event.anno_f = req.body.anno_f;
+                event.ora_f = req.body.ora_f;
+                event.dateUtility_f = data_f;
+                event.hoursUtility_f = oraUtility_f;
 
                 event.save().then(updateEvent => {
                     req.flash('success_msg', 'Evento modificato con successo!');
@@ -256,6 +324,21 @@ module.exports = {
         indirizzo = indirizzo.split(' ').join('+');
         var addressParser = citta + '%2C' + '+' + indirizzo;
 
+        //create hoursUtility for Calendar
+        let oraUtility = req.body.ora;
+        oraUtility = Number(oraUtility.split(':').join("")) - 200;
+        oraUtility = oraUtility.toString();
+
+        if(oraUtility == '-200') oraUtility = '2200';
+        if(oraUtility == '-170') oraUtility = '2230';
+        if(oraUtility == '-100') oraUtility = '2300';
+        if(oraUtility == '-70') oraUtility = '2330'; 
+        if(oraUtility == '0') oraUtility = '0000';
+        if(oraUtility == '30') oraUtility = '0030';       
+
+        if(oraUtility.length == 3) {
+            oraUtility = '0' + oraUtility;
+        }
 
         // create dateUtility
         const day = req.body.giorno;
@@ -279,15 +362,25 @@ module.exports = {
                 event.provinciaUtility = req.body.provincia.toUpperCase();
                 event.indirizzo = req.body.indirizzo;
                 event.indirizzoMaps = addressParser;
-                event.giorno = req.body.giorno;
-                event.mese = req.body.mese;
-                event.anno = req.body.anno;
-                event.ora = req.body.ora;
-                event.dateUtility = data;
+                /* data inizio */
+                event.giorno_i = req.body.giorno_i;
+                event.mese_i = req.body.mese_i;
+                event.anno_i = req.body.anno_i;
+                event.ora_i = req.body.ora_i;
+                event.dateUtility_i = data_i;
+                event.hoursUtility_i = oraUtility_i;
+                /* data fine */
+                event.giorno_f = req.body.giorno_f;
+                event.mese_f = req.body.mese_f;
+                event.anno_f = req.body.anno_f;
+                event.ora_f = req.body.ora_f;
+                event.dateUtility_f = data_f;
+                event.hoursUtility_f = oraUtility_f;
 
                 event.save().then(updateEvent => {
                     req.flash('success_msg', 'Evento modificato con successo!');
                     res.redirect('/user/userEvents');
+                    console.log(updateEvent);
                 }).catch(err => console.log(err));
             });
         }
@@ -301,9 +394,6 @@ module.exports = {
 
     /* delete event */
     getDeleteEvent: (req, res) => {
-
-        console.log('siamo qua');
-
         EventSchema.findByIdAndDelete({_id: req.params._id})
             .then(deleteEvent => {
                 req.flash('success_msg', `L'evento ${deleteEvent.title} è stato eliminato`);

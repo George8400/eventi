@@ -68,26 +68,55 @@ const EventSchema = new Schema({
         required: true
     },
 
-    giorno: {
+    giorno_i: {
         type: String,
         required: true
     },
-    mese: {
+    mese_i: {
         type: String,
         required: true
     },
-    anno: {
+    anno_i: {
         type: String,
         required: true
     },
-    ora: {
+    ora_i: {
         type: String,
         required: true
     },
 
-    dateUtility: {
+    dateUtility_i: {
         type: String,
         required: true
+    },
+
+    hoursUtility_i: {
+        type: String
+    },
+    giorno_f: {
+        type: String,
+        required: true
+    },
+    mese_f: {
+        type: String,
+        required: true
+    },
+    anno_f: {
+        type: String,
+        required: true
+    },
+    ora_f: {
+        type: String,
+        required: true
+    },
+
+    dateUtility_f: {
+        type: String,
+        required: true
+    },
+
+    hoursUtility_f: {
+        type: String
     },
 
     lat: {

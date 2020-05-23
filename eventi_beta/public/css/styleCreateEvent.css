@@ -17,7 +17,7 @@ Search Box
 .create-box {  
     display: flex;
     max-width: 600px;
-    max-height: 40px;
+    /* max-height: 40px; */
     margin: 34px auto 0 ;
     
 }
@@ -127,7 +127,13 @@ h6{
 /* Date box */
 .create-box-date{
     margin-top: 60px;
+    flex-wrap: wrap;
 }
+.create-box-date h3{
+    width: 100%;
+    margin: 10px auto;
+}
+
 /* remove arrow select box */
 .create-box-date select{
     margin: 10px 4px;
@@ -156,7 +162,10 @@ h6{
         margin-bottom: 15px;
     }
     .create-box-address input{
-        margin-top: 36px;
         margin-bottom: 15px;
+    }
+
+    .create-box.create-box-side.create-box-address {
+        margin-top: 0;
     }
 }
