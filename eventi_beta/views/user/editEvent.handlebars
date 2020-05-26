@@ -69,9 +69,12 @@
          <div class="create-box create-box-side create-box-address"> 
             <input type="text" name="indirizzo" class="create-txt" placeholder="Indirizzo" value="{{event.indirizzo}}">
         </div>
-         <div class="create-box create-box-side create-box-date"> 
-            <select type="text" name="giorno" class="create-txt" placeholder="giorno">
-                <option value="{{event.giorno}}">{{event.giorno}}</option>
+        
+         {{!-- Data e ora di Inizio evento --}}
+        <div class="create-box create-box-side create-box-date"> 
+            <h3>Data e ora di inizio evento</h3>
+            <select type="text" name="giorno_i" class="create-txt" placeholder="giorno">
+                <option value="{{event.giorno_i}}">{{event.giorno_i}}</option>
                 <option value="01">01</option>
                 <option value="02">02</option>
                 <option value="03">03</option>
@@ -104,8 +107,8 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
-            <select type="text" name="mese" class="create-txt" placeholder="mese">
-                <option value="{{event.mese}}">{{event.mese}}</option>
+            <select type="text" name="mese_i" class="create-txt" placeholder="mese">
+                <option value="{{event.mese_i}}">{{event.mese_i}}</option>
                 <option value="01">Gennaio</option>
                 <option value="02">Febbraio</option>
                 <option value="03">Marzo</option>
@@ -119,14 +122,14 @@
                 <option value="11">Novembre</option>
                 <option value="12">Dicembre</option>
             </select>
-            <select type="text" name="anno" class="create-txt" placeholder="anno" value="{{event.anno}}">
-                <option value="{{event.anno}}">{{event.anno}}</option>
+            <select type="text" name="anno_i" class="create-txt" placeholder="anno">
+                <option value="{{event.anno_i}}">{{event.anno_i}}</option>
                 <option value="2020">2020</option>
                 <option value="2021">2021</option> 
                 <option value="2022">2022</option>     
             </select>
-            <select type="text" name="ora" class="create-txt" placeholder="ora" value="{{event.ora}}">
-                <option value="{{event.ora}}">{{event.ora}}</option>
+            <select type="text" name="ora_i" class="create-txt" placeholder="ora">
+                <option value="{{event.ora_i}}">{{event.ora_i}}</option>
                 <option value="00:00">00:00</option>
                 <option value="00:30">00:30</option> 
                 <option value="01:00">01:00</option>
@@ -175,7 +178,120 @@
                 <option value="22:30">22:30</option>
                 <option value="23:00">23:00</option> 
                 <option value="23:30">23:30</option>
+            </select>
+        </div>
 
+
+        {{!-- Data e ora di fine --}}
+
+
+        <div class="create-box create-box-side create-box-date"> 
+            <h3>Data e ora di fine evento</h3>
+            <select type="text" name="giorno_f" class="create-txt" placeholder="giorno">
+                <option value="{{event.giorno_f}}">{{event.giorno_f}}</option>
+                <option value="01">01</option>
+                <option value="02">02</option>
+                <option value="03">03</option>
+                <option value="04">04</option>
+                <option value="05">05</option>
+                <option value="06">06</option>
+                <option value="07">07</option>
+                <option value="08">08</option>
+                <option value="09">09</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+                <option value="17">17</option>
+                <option value="18">18</option>
+                <option value="19">19</option>
+                <option value="20">20</option>
+                <option value="21">21</option>
+                <option value="22">22</option>
+                <option value="23">23</option>
+                <option value="24">24</option>
+                <option value="25">25</option>
+                <option value="26">26</option>
+                <option value="27">27</option>
+                <option value="28">28</option>
+                <option value="29">29</option>
+                <option value="30">30</option>
+                <option value="31">31</option>
+            </select>
+            <select type="text" name="mese_f" class="create-txt" placeholder="mese">
+                <option value="{{event.mese_f}}">{{event.mese_f}}</option>
+                <option value="01">Gennaio</option>
+                <option value="02">Febbraio</option>
+                <option value="03">Marzo</option>
+                <option value="04">Aprile</option>
+                <option value="05">Maggio</option>
+                <option value="06">Giugno</option>
+                <option value="07">Luglio</option>
+                <option value="08">Agosto</option>
+                <option value="09">Settembre</option>
+                <option value="10">Ottobre</option>
+                <option value="11">Novembre</option>
+                <option value="12">Dicembre</option>
+            </select>
+            <select type="text" name="anno_f" class="create-txt" placeholder="anno">
+                <option value="{{event.anno_f}}">{{event.anno_f}}</option>
+                <option value="2020">2020</option>
+                <option value="2021">2021</option> 
+                <option value="2022">2022</option>     
+            </select>
+            <select type="text" name="ora_f" class="create-txt" placeholder="ora">
+                <option value="{{event.ora_f}}">{{event.ora_f}}</option>
+                <option value="00:00">00:00</option>
+                <option value="00:30">00:30</option> 
+                <option value="01:00">01:00</option>
+                <option value="01:30">01:30</option>
+                <option value="02:00">02:00</option> 
+                <option value="02:30">02:30</option>
+                <option value="03:00">03:00</option>
+                <option value="03:30">03:30</option> 
+                <option value="04:00">04:00</option>
+                <option value="04:30">04:30</option>
+                <option value="05:00">05:00</option> 
+                <option value="05:30">05:30</option>
+                <option value="06:00">06:00</option> 
+                <option value="06:30">06:30</option> 
+                <option value="07:00">07:00</option> 
+                <option value="07:30">07:30</option> 
+                <option value="08:00">08:00</option> 
+                <option value="08:30">08:30</option> 
+                <option value="09:00">09:00</option> 
+                <option value="09:30">09:30</option>      
+                <option value="10:00">10:00</option> 
+                <option value="10:30">10:30</option> 
+                <option value="11:00">11:00</option> 
+                <option value="11:30">11:30</option>
+                <option value="12:00">12:00</option> 
+                <option value="12:30">12:30</option>
+                <option value="13:00">13:00</option> 
+                <option value="13:30">13:30</option>
+                <option value="14:00">14:00</option> 
+                <option value="14:30">14:30</option>
+                <option value="15:00">15:00</option> 
+                <option value="15:30">15:30</option>
+                <option value="16:00">16:00</option> 
+                <option value="16:30">16:30</option>
+                <option value="17:00">17:00</option> 
+                <option value="17:30">17:30</option> 
+                <option value="18:00">18:00</option> 
+                <option value="18:30">18:30</option>
+                <option value="19:00">19:00</option> 
+                <option value="19:30">19:30</option>
+                <option value="20:00">20:00</option> 
+                <option value="20:30">20:30</option>
+                <option value="21:00">21:00</option> 
+                <option value="21:30">21:30</option>
+                <option value="22:00">22:00</option> 
+                <option value="22:30">22:30</option>
+                <option value="23:00">23:00</option> 
+                <option value="23:30">23:30</option>
             </select>
         </div>
 
@@ -285,7 +401,7 @@
                       
                    <form action="/user/userEvents">
                         <button type="submit" >
-                            <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                            <i class="fas fa-tachometer-alt" style="color: #777"></i>
                         </button>
                     </form>
                 </li>

@@ -1,0 +1,560 @@
+:root{
+    --color-text: #555;
+    --color-second: #2196F3;/* cornflowerblue; */
+    --color-bg: #e0e0e000;
+    --color-user: #333;
+    --color-icon-user: #777;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+p{
+    color: var(--color-text);
+}
+
+html, body{
+    width: 100%;
+    height: 100vh;
+    /* background: linear-gradient(to right, rgb(122, 206, 0) , rgb(0, 155, 255)); */
+    background: var(--color-bg);
+}
+
+/*-----------
+Header
+-------------*/
+.hdr {
+    /* position: fixed;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 70px;
+    min-height: 50px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    padding: 0 5%;
+    margin-bottom: 40px;
+    transition: 0.5s;
+    background: var(--color-user);
+}
+
+ .hdr-invisible {   
+    transform: translateY(-100%);
+} 
+
+.hdr__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hdr__logo a {
+    display: contents;
+    text-decoration: none;
+    font-size: x-large;
+    color: var(--color-icon-user);
+}
+
+.hdr__logo a img {
+    display: inline-block;
+    max-height: 44px;
+    max-width: 100%;
+}
+
+.hdr__nav {
+    display: flex;
+    justify-content: space-around;
+}
+.hdr__nav__menu{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hdr__nav__menu__item {
+    display: flex;
+    list-style: none;
+    padding: 0 7px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.hdr__nav__menu__item a{
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+
+}
+.hdr__nav__menu__item button {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    outline: none;
+    z-index: 12;
+    transition: 0.3s;
+}
+.hdr__nav__menu__item a .fas{
+    font-size: 15px;
+    color: var(--color-icon-user);
+}
+.hdr__nav__menu__item a:active{
+    transform: scale(0.98);
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.hdr__nav__menu__item button .fas{
+    font-size: 15px;
+    color: var(--color-icon-user);
+}
+.hdr__nav__menu__item button:active{
+    transform: scale(0.98);
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+/* Popup confirm delete */
+.confirm-logout{
+    position: fixed;
+    display: flex;
+    width: 100vw;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: all .5s ease-in-out;
+    z-index: 10;
+    visibility: hidden;
+}
+.confirm-logout-form{
+    display: flex;
+    bottom: -100vh;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+    z-index: 11;
+    max-width: 327px;
+    flex-wrap: wrap;
+    margin: auto 10vw;
+    background: #fff;
+    transform: translateY(-80vh);
+    border-radius: 10px;
+    padding: 63px;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
+    line-height: 3;
+}
+.confirm-logout.show-form-bg{
+    background: #ffffffa6;
+    visibility: visible;
+}
+.confirm-logout-form.show-form{
+    transform: translateY(-5vh);
+}
+.confirm-logout-form p{
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 10px;
+}
+.confirm-logout-form i{
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+.confirm-logout-form button{
+    outline: none;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 2px 10px;
+    cursor: pointer;
+}
+
+
+/* Style line bottom header */
+.line{
+    content: ' ';
+    position: absolute;
+    top: 70px;
+    left: 0;
+    height: 3px;
+    width: 100%;
+
+    background: linear-gradient(90deg, 
+    rgba(249,160,4,0.9248074229691877) 8%, 
+    rgba(247,18,6,0.835171568627451) 31%, 
+    rgba(9,53,121,0.9164040616246498) 66%, 
+    rgba(0,255,34,0.8883928571428571) 100%);
+    /* background: linear-gradient(90deg, 
+    rgba(4,29,249,0.8211659663865546) 3%, 
+    rgba(247,220,6,1) 35%, 
+    rgba(237,15,8,0.9164040616246498) 68%, 
+    rgba(0,255,34,0.8883928571428571) 100%); */
+}
+
+
+
+/*---------------------------
+Tooltip
+---------------------------*/
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+  }
+  
+  /* Tooltip text */
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 60px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+   
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  /* Show the tooltip text when you mouse over the tooltip container */
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+
+/*---------------------------
+form
+---------------------------*/
+.form-categories{
+    margin-top: 20px;
+}
+
+
+/*---------------------------
+Presentation banner msg
+---------------------------*/
+.banner__msg{
+    display: flex;
+    height: 30vh;
+    min-height: 300px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.banner__msg h2, h3{
+    color: var(--color-text);
+    letter-spacing: 1px;
+    margin: 0 25px;
+    text-align: center;
+}
+
+/*-----------
+Search Box
+-------------*/
+.search-box {  
+    display: flex;
+    max-width: 600px;
+    max-height: 40px;
+    margin-top: 3vh;
+    margin: 8vh auto 0 ;
+    
+}
+.search-box input{
+    /* border: 1px solid #333; */
+    border-radius: 50px;
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+                 -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.search-box input:focus{
+    /* border: 2px solid cornflowerblue; */
+    /* background: var(--color-second); */
+    border-radius: 50px;
+    box-shadow:  inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.search-txt {
+    position: relative;
+    border: none;
+    background: none;
+    outline: none;
+    padding: 10px;
+    max-width: 100%;
+}
+.search-box input[type=text]{
+    color: var(--color-text);
+    width: 85vw;
+    margin: auto;
+}
+
+
+/*-----------
+Categories
+-------------*/
+.container{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    padding: 3vh 9vw;
+    margin: 25px auto 100px;
+    min-height: 40vh;
+}
+
+.container label{
+    position: relative;
+    cursor: pointer;
+    margin: 1.5vw;
+}
+
+.container label input[type="checkbox"]{
+    position: absolute;
+    opacity: 0;
+}
+
+.container label .card{
+    padding: 25px 20px 20px 20px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 35px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 22px rgba(0, 0, 0, 0.2), -10px -10px 22px rgba(255, 255, 255, 0.75);
+    user-select: none;
+    margin: 8px;
+}
+/* .container label .card h2{
+    color: var(--color-text);
+    font-size: 19px;
+    text-align: center;
+    transition: 0.2s;
+} */
+.container label .card p{
+    color: var(--color-text);
+    font-size: 13px;
+    text-align: center;
+    transition: 0.0s;
+}
+/* .container label:hover h2{
+    color: var(--color-second);
+} */
+ .container label:hover i{
+    color: var(--color-second);
+} 
+.container label:hover p{
+    color: var(--color-second);
+}
+.container label input[type="checkbox"]:checked ~ .card{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+     /* text-shadow: 0 0 1px #fd8700, 0 0 5px #fd8700;  */
+}
+/* .container label input[type="checkbox"]:checked ~ .card h2{
+    transform: scale(0.97);
+    color: var(--color-second);
+} */
+.container label input[type="checkbox"]:checked ~ .card i{
+    transform: scale(0.97);
+    color: var(--color-second);
+}
+.container label input[type="checkbox"]:checked ~ .card p{
+    transform: scale(0.97);
+    color: var(--color-second);
+}
+
+
+/*------------
+Send Button
+-------------*/
+.cnt__btn{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 100px;
+}
+.cnt__btn-edit{
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 80px;
+    margin: 0 23vw;
+    margin-bottom: 100px;
+}
+.cnt__btn button{
+    position: relative;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+     transition: 0.2s;
+                 
+}
+.cnt__btn-edit button{
+    position: relative;
+    background: transparent; 
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2),
+     -5px -5px 11px rgba(255, 255, 255, 0.75);
+     transition: 0.2s;            
+}
+.cnt__btn-edit a {
+    text-decoration: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 5px 5px 11px rgba(0, 0, 0, 0.2), -5px -5px 11px rgba(255, 255, 255, 0.75);
+    transition: 0.2s;
+}
+.cnt__btn-edit a i {
+    color: #f32e0bd2;
+    transition: 0.2s;
+}
+.cnt__btn-edit button .fas{
+    color: rgb(10, 181, 17);
+}
+.cnt__btn-edit button:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn-edit button:active .fas{
+    transform: scale(0.94);
+    color: rgb(10, 181, 17);
+    transition: 0s;
+}
+.cnt__btn-edit a:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn-edit a:active .fas{
+    transform: scale(0.94);
+    color: #f32e0bd2;
+    transition: 0s;
+}
+.cnt__btn button:active{
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.cnt__btn button:active .fas{
+    transform: scale(0.94);
+    color: var(--color-second);
+    transition: 0s;
+}
+.cnt__btn button:hover .fas{
+    color: var(--color-second);
+}
+.fas{ /* classe dell'icona */
+    font-size: 25px;
+    color: var(--color-text);
+    transition: 0.2s;
+}
+.fab{ /* classe dell'icona */
+    font-size: 30px;
+    color: var(--color-text);
+    transition: 0.2s;
+}
+
+
+
+/*------------
+Footer
+-------------*/
+.footer{
+    background: transparent;
+    position: relative;
+    margin: 200px 0 50px 0;
+    height: 70px;
+    width: 100%;
+    padding: 10px;
+    color: var(--color-text);
+    text-align: center;
+}
+
+.footer p{
+/* 	margin-bottom: 20px; */
+	color:var(--color-text);
+}
+
+
+/*-----------------
+Custom scrollbar
+-------------------*/
+/* width */
+::-webkit-scrollbar {
+    width: 4px;
+    height: 80%;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+   
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(172, 169, 169, 0.973); 
+    border-radius: 10px;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+
+
+
+
+@media screen and (max-width: 540px){
+    .cnt__btn {
+        width: 100%;
+    }
+
+}

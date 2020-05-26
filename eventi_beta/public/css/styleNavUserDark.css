@@ -1,0 +1,87 @@
+.hdr__nav__user{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    top: 0;
+    left: 12px;
+    z-index: 1;
+}
+
+.hdr__nav__user__menu{
+    display: flex;
+    flex-direction: column;
+}
+
+.hdr__nav__user__menu__item{
+    list-style: none;
+    padding: 0 7px;
+    letter-spacing: 1px;
+}
+.hdr__nav__user__menu__item button {
+    position: relative;
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+.hdr__nav__user__menu__item button .fas{
+    font-size: 15px;
+}
+.hdr__nav__user__menu__item button:hover{
+    box-shadow:  5px 5px 11px rgba(0, 0, 0, 0.2),
+                -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+.hdr__nav__user__menu__item button:active{
+    transform: scale(0.98);
+    box-shadow: inset 5px 5px 11px rgba(0, 0, 0, 0.2),
+                inset -5px -5px 11px rgba(255, 255, 255, 0.75);
+}
+
+@media screen and (max-width: 820px){
+
+    .hdr__nav__user{
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        background: #333;
+        height: 69px;
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: 0px -2px 10px 0px rgba(0,0,0,0.25);
+        z-index: 1;
+    }
+    
+    .hdr__nav__user__menu{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .hdr__nav__user__menu__item{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        letter-spacing: 1px;
+        margin: 10px 0 18px;
+    }
+
+    .hdr__nav__user__menu__item form button i.fas{
+        color: #777;
+    }
+
+    
+
+}

@@ -12,9 +12,15 @@
 
     <div class="dati-event">
 
+
+        {{!-- Luogo --}}
+        <section class="dati-event-luogo">
         <h4>Luogo</h4>
         <p><a href="https://www.google.com/maps/search/?api=1&query={{eventUser.indirizzoMaps}}" target="_blank"><i class="fas fa-map-marker-alt"></i> {{eventUser.citta}}, {{eventUser.indirizzo}}</a></p>
-        
+        </section>
+
+        {{!-- Data Inizio --}}
+        <section class="dati-event-data_inizio">
         <h4>Data Inizio</h4>
         <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{eventUser.title}}&details=Evento+salvato+da+Youlivent&location={{eventUser.indirizzoMaps}}&dates={{eventUser.dateUtility_i}}T{{eventUser.hoursUtility_i}}00Z%2F{{eventUser.dateUtility_f}}T{{eventUser.hoursUtility_f}}00Z"
                 target="_blank">
@@ -23,7 +29,10 @@
             </a>
         </p>
         <p><i class="fas fa-clock"></i> {{eventUser.ora_i}}h</p>
+        </section>
 
+        {{!-- Data Fine --}}
+        <section class="dati-eventi-data_fine">
         <h4>Data Fine</h4>
         <p><a href="https://www.google.com/calendar/render?action=TEMPLATE&text={{eventUser.title}}&details=Evento+salvato+da+Youlivent&location={{eventUser.indirizzoMaps}}&dates={{eventUser.dateUtility_i}}T{{eventUser.hoursUtility_i}}00Z%2F{{eventUser.dateUtility_f}}T{{eventUser.hoursUtility_f}}00Z"
                 target="_blank">
@@ -32,8 +41,9 @@
             </a>
         </p>
         <p><i class="fas fa-clock"></i> {{eventUser.ora_f}}h</p>
+        </section>
 
-        {{!-- views --}}
+        {{!-- Views --}}
         <p><i class="fas fa-eye"> </i> {{eventUser.views}}</p>
     </div>
 
@@ -56,7 +66,7 @@
                       
                    <form action="/user/userEvents">
                         <button id="btn-dashboard" type="submit" >
-                            <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                            <i class="fas fa-tachometer-alt" style="color: #777"></i>
                         </button>
                     </form>
                 </li>
@@ -65,8 +75,8 @@
                           <span class="tooltiptext">Modifica evento</span>
                       </div>
                        <form action="/user/eventi/editEvent/{{eventUser._id}}?newMethod=GET" method="get">
-                        <button id="btn-edit" type="submit" >
-                            <i class="fas fa-edit" style="color:#ff9800"></i>
+                        <button id="btn-edit" type="submit" alt="Edit">
+                            <i class="fas fa-edit" style="color:#777"></i>
                         </button>
                     </form>
                 </li>
@@ -77,7 +87,7 @@
 
                     <div>
                         <button id="btn-delete" onclick="confirmDelete()">
-                            <i class="fas fa-trash-alt" style="color:#f32e0bd2"></i>
+                            <i class="fas fa-trash-alt" style="color:#777"></i>
                         </button>
                     </div>
                 </li>
@@ -88,7 +98,7 @@
 
                        <form action="/user/eventi/shareEvent">
                         <button id="#btn-share" type="submit" >
-                            <i class="fas fa-share-square" style="color:#0389f7d2"></i>
+                            <i class="fas fa-share-square" style="color:#777"></i>
                         </button>
                     </form>
                 </li>
@@ -187,7 +197,7 @@
                       
                    <form action="/user/userEvents">
                         <button type="submit" >
-                            <i class="fas fa-tachometer-alt" style="color: #555"></i>
+                            <i class="fas fa-tachometer-alt" style="color: #777"></i>
                         </button>
                     </form>
                 </li>
